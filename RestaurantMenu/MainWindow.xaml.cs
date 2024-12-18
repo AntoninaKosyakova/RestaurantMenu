@@ -22,12 +22,12 @@ namespace RestaurantMenu
         }
 
         /// <summary>
-        ///      This is so that when you click on the 'Place Order Button' it goes to the FoodMenu window
+        ///      This is so that when you click on the 'Place Order Button' it goes to the FoodMenuWindow
         /// </summary>
         private void PlaceOrderButton_Click(object sender, RoutedEventArgs e)
         {
             // Open the Food Menu window
-            FoodMenu foodMenuWindow = new FoodMenu();
+            FoodMenuWindow foodMenuWindow = new FoodMenuWindow();
             foodMenuWindow.Show();
             this.Close();
         }
