@@ -14,19 +14,50 @@
                    HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0"/>
 
         <!-- Left Section: Food Categories -->
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Width="400">
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Width="400" Margin="20">
 
             <!-- Starters -->
-            <TextBlock Text="Starters" FontSize="20" FontWeight="Bold" Foreground="#FFFFFF" Margin="0,50,0,10"/>
-            <StackPanel Orientation="Horizontal" Margin="10">
-                <TextBlock Text="Name" Foreground="#FFFFFF" Width="100"/>
-                <Button Content="Add" Width="50" Click="AddToOrder_Click"/>
-            </StackPanel>
+            <GroupBox Header="Starter"  Foreground="#FFFFFF" Margin="0,50,0,10">
+                        
+                <StackPanel Orientation="Horizontal" Margin="10">
+                    <TextBlock Text="Name" Foreground="#FFFFFF" Width="100"/>
+                    <Button Content="Add" Width="50" Click="AddToOrder_Click"/>
+                </StackPanel>
+                
+            </GroupBox>
 
+             <!-- Main Dishes -->
+            <GroupBox Header="Main Dishes"  Foreground="#FFFFFF" Margin="0,50,0,10">
+                           
+                <StackPanel Orientation="Horizontal" Margin="10">
+                    <TextBlock Text="Name" Foreground="#FFFFFF" Width="100"/>
+                    <Button Content="Add" Width="50" Click="AddToOrder_Click"/>
+                </StackPanel>
+                
+            </GroupBox>
+            
+            <!-- Desserts -->
+            <GroupBox Header="Desserts"  Foreground="#FFFFFF" Margin="0,50,0,10">
+            
+                <StackPanel Orientation="Horizontal" Margin="10">
+                    <TextBlock Text="Name" Foreground="#FFFFFF" Width="100"/>
+                    <Button Content="Add" Width="50" Click="AddToOrder_Click"/>
+                </StackPanel>
+                
+            </GroupBox>
 
+        </StackPanel>
 
+        <!-- Right Section: Order Summary -->
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Right" Width="300" Margin="10">
+            <TextBlock Text="Your Order" FontSize="20" FontWeight="Bold" Foreground="#FFFFFF" Margin="0,50,0,10"/>
+            <ListBox Name="OrderListBox" Background="#333333" Foreground="White" Height="600"/>
+            <TextBlock Text="Total:" Foreground="#FFFFFF" FontSize="14" Margin="0,10,0,0"/>
+            <TextBox Name="TotalPriceBox" IsReadOnly="True" Background="#333333" Foreground="White" TextChanged="TotalPriceBox_TextChanged" />
 
-
+            <!-- Buttons -->
+            <Button Content="Place Order" Width="100" Margin="0,10,0,0" Click="PlaceOrder_Click"/>
+            <Button Content="View Past Orders" Width="150" Margin="0,5,0,0" Click="ViewOrders_Click"/>
         </StackPanel>
 
 

@@ -23,5 +23,10 @@ namespace RestaurantMenu
         {
             InitializeComponent();
         }
+
+        private void TotalPriceBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
