@@ -5,8 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RestaurantMenu"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="400"
+         Background="Gainsboro">
     <Grid>
+        <!-- Welcome Text -->
+        <TextBlock Text="Welcome to Restaurant (C)Sharp Minds !" 
+                   Foreground="Black" FontSize="18" FontWeight="Bold" 
+                   HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0"/>
 
+
+        <!-- Manager Button -->
+        <Button Content="Manager?" Width="150" Height="70" 
+                FontSize="18"
+                HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,-90,0,0"
+                Click="ManagerButton_Click"/>
+
+        <!-- Place Order Button -->
+        <Button Content="Place Order" Width="150" Height="70" 
+                FontSize="18"
+                HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,90,0,0"
+                Click="PlaceOrderButton_Click"/>
+        
     </Grid>
 </Window>
