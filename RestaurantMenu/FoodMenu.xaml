@@ -5,9 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RestaurantMenu"
         mc:Ignorable="d"
-        Title="FoodMenu" Height="450" Width="800"
-        FontFamily = "Times New Roman">
+        Title="FoodMenu" Height="1000" Width="800"
+        FontFamily = "Times New Roman"
+        Background="#4B2C2C">
     <Grid>
-        
+
+        <TextBlock Text="FOOD MENU" FontSize="30" FontWeight="Bold" Foreground="#FFFFFF"
+                   HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0"/>
+
+       
+
+
     </Grid>
 </Window>
