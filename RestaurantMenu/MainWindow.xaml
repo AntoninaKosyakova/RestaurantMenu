@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:RestaurantMenu"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="400"
-         Background="Gainsboro">
+        Background="Gainsboro"
+        FontFamily = "Times New Roman">
     <Grid>
         <!-- Welcome Text -->
         <TextBlock Text="Welcome to Restaurant (C)Sharp Minds !" 
@@ -17,12 +18,16 @@
         <!-- Manager Button -->
         <Button Content="Manager?" Width="150" Height="70" 
                 FontSize="18"
+                Background="gray"
+                Foreground="white"
                 HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,-90,0,0"
                 Click="ManagerButton_Click"/>
 
         <!-- Place Order Button -->
         <Button Content="Place Order" Width="150" Height="70" 
                 FontSize="18"
+                Background="gray"
+                Foreground="white"
                 HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,90,0,0"
                 Click="PlaceOrderButton_Click"/>
         

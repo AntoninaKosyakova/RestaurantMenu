@@ -20,5 +20,23 @@ namespace RestaurantMenu
         {
             InitializeComponent();
         }
+
+        /// <summary>
+        ///      This is so that when you click on the 'Place Order Button' it goes to the FoodMenu window
+        /// </summary>
+        private void PlaceOrderButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Open the Food Menu window
+            FoodMenu foodMenuWindow = new FoodMenu();
+            foodMenuWindow.Show();
+            this.Close();
+        }
+
+        private void ManagerButton_Click(object sender, RoutedEventArgs e)
+        {
+           //open manager's window
+        }
+
+
     }
 }

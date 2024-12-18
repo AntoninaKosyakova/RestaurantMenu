@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RestaurantMenu"
         mc:Ignorable="d"
-        Title="FoodMenu" Height="450" Width="800">
+        Title="FoodMenu" Height="450" Width="800"
+        FontFamily = "Times New Roman">
     <Grid>
         
     </Grid>
