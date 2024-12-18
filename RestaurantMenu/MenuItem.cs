@@ -14,6 +14,7 @@ namespace RestaurantMenu
         private double price;
         private CategoryEnum category;
         private string imagePath;
+        private const int SPACE = -40;
 
         // Enum for Category
         public enum CategoryEnum
@@ -126,7 +127,7 @@ namespace RestaurantMenu
         /// <returns>A string describing the MenuItem.</returns>
         public override string ToString()
         {
-            return Name + " (" + Category + ") - " + Price.ToString("C");
+            return $"{Name,SPACE}{Price}\n{Description}";
         }
     }
 }
