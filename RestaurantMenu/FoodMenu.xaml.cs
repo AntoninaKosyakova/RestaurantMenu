@@ -20,9 +20,9 @@
 //    public partial class FoodMenu : Window
 //    {
 //        // List of Menu Items for each category
-//        private List<MenuItem> starters;
-//        private List<MenuItem> mainDishes;
-//        private List<MenuItem> desserts;
+//        private List<MenuItem> _starters;
+//        private List<MenuItem> _mainDishes;
+//        private List<MenuItem> _desserts;
 
 //        /// <summary>
 //        /// Constructor for the FoodMenuWindow class.
@@ -42,19 +42,19 @@
 //        /// </summary>
 //        private void LoadMenuItems()
 //        {
-//            starters = new List<MenuItem>
+//            _starters = new List<MenuItem>
 //            {
 //                new MenuItem("Bruschetta al Pomodoro", "Grilled bread topped with fresh tomatoes, garlic, olive oil, and basil.", 6.00, MenuItem.CategoryEnum.Starters, "Images/bread.jpeg"),
 //                new MenuItem("Caprese Salad", "Fresh mozzarella, tomatoes, basil, drizzled with balsamic glaze.", 9.50, MenuItem.CategoryEnum.Starters, "Images/Salad.jpg")
 //            };
 
-//            mainDishes = new List<MenuItem>
+//            _mainDishes = new List<MenuItem>
 //            {
 //                new MenuItem("Lasagna al Forno", "Layers of pasta, Bolognese sauce, béchamel, and parmesan cheese.", 10.00, MenuItem.CategoryEnum.MainDish, "Images/Lasagna.png"),
 //                new MenuItem("Risotto ai Funghi", "Creamy Arborio rice cooked with mushrooms, garlic, and parmesan.", 12.00, MenuItem.CategoryEnum.MainDish, "Images/MushroomRisotto.png")
 //            };
 
-//            desserts = new List<MenuItem>
+//            _desserts = new List<MenuItem>
 //            {
 //                new MenuItem("Tiramisu", "Layers of espresso-soaked ladyfingers, mascarpone cream, and cocoa powder.", 4.50, MenuItem.CategoryEnum.Dessert, "Images/Tiramisu.png"),
 //                new MenuItem("Panna Cotta", "Silky cooked cream dessert served with a berry coulis or caramel sauce.", 6.99, MenuItem.CategoryEnum.Dessert, "Images/PannaCotta.jpg")
@@ -67,9 +67,9 @@
 //        /// </summary>
 //        private void PopulateMenu()
 //        {
-//            AddMenuItemsToGroup(StartersPanel, starters);
-//            AddMenuItemsToGroup(MainDishesPanel, mainDishes);
-//            AddMenuItemsToGroup(DessertsPanel, desserts);
+//            AddMenuItemsToGroup(StartersPanel, _starters);
+//            AddMenuItemsToGroup(MainDishesPanel, _mainDishes);
+//            AddMenuItemsToGroup(DessertsPanel, _desserts);
 //        }
 
 

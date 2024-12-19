@@ -11,9 +11,9 @@ namespace RestaurantMenu
     public partial class FoodMenuWindow : Window
     {
         // List of Menu Items for each category
-        private List<MenuItem> starters;
-        private List<MenuItem> mainDishes;
-        private List<MenuItem> desserts;
+        private List<MenuItem> _starters;
+        private List<MenuItem> _mainDishes;
+        private List<MenuItem> _desserts;
 
         // List to keep track of items in the current order
         private List<MenuItem> order;
@@ -27,36 +27,38 @@ namespace RestaurantMenu
         {
             InitializeComponent(); // Initializes the WPF components from XAML
             order = new List<MenuItem>(); //// Initialize the order list
-            LoadMenuItems(); // Initialize menu items
+            // Initialize menu items
+            _starters = Manager._starters;
+
             PopulateMenu();  // Populate UI dynamically
 
         }
 
 
 
-        /// <summary>
-        ///      Load menu items into categories.
-        /// </summary>
-        private void LoadMenuItems()
-        {
-            starters = new List<MenuItem>
-            {
-               new MenuItem("Bruschetta al Pomodoro", "Grilled bread topped with fresh tomatoes, garlic, olive oil, and basil.", 6.00, "/Images/bread.jpg"),
-               new MenuItem("Caprese Salad", "Fresh mozzarella, tomatoes, basil, drizzled with balsamic glaze.", 9.50, "/Images/Salad.jpg")
-            };
+        ///// <summary>
+        /////      Load menu items into categories.
+        ///// </summary>
+        //private void LoadMenuItems()
+        //{
+        //    _starters = new List<MenuItem>
+        //    {
+        //       new MenuItem("Bruschetta al Pomodoro", "Grilled bread topped with fresh tomatoes, garlic, olive oil, and basil.", 6.00, "/Images/bread.jpg"),
+        //       new MenuItem("Caprese Salad", "Fresh mozzarella, tomatoes, basil, drizzled with balsamic glaze.", 9.50, "/Images/Salad.jpg")
+        //    };
 
-            mainDishes = new List<MenuItem>
-            {
-                 new MenuItem("Lasagna al Forno", "Layers of pasta, Bolognese sauce, béchamel, and parmesan cheese.", 10.00, "/Images/Lasagna.png"),
-                 new MenuItem("Risotto ai Funghi", "Creamy Arborio rice cooked with mushrooms, garlic, and parmesan.", 12.00, "/Images/MushroomRisotto.png")
-            };
+        //    _mainDishes = new List<MenuItem>
+        //    {
+        //         new MenuItem("Lasagna al Forno", "Layers of pasta, Bolognese sauce, béchamel, and parmesan cheese.", 10.00, "/Images/Lasagna.png"),
+        //         new MenuItem("Risotto ai Funghi", "Creamy Arborio rice cooked with mushrooms, garlic, and parmesan.", 12.00, "/Images/MushroomRisotto.png")
+        //    };
 
-            desserts = new List<MenuItem>
-            {
-                new MenuItem("Tiramisu", "Layers of espresso-soaked ladyfingers, mascarpone cream, and cocoa powder.", 4.50, "/Images/Tiramisu.png"),
-                new MenuItem("Panna Cotta", "Silky cooked cream dessert served with a berry coulis or caramel sauce.", 6.99, "/Images/PannaCotta.png")
-            };
-        }
+        //    _desserts = new List<MenuItem>
+        //    {
+        //        new MenuItem("Tiramisu", "Layers of espresso-soaked ladyfingers, mascarpone cream, and cocoa powder.", 4.50, "/Images/Tiramisu.png"),
+        //        new MenuItem("Panna Cotta", "Silky cooked cream dessert served with a berry coulis or caramel sauce.", 6.99, "/Images/PannaCotta.png")
+        //    };
+        //}
 
         /// <summary>
         ///      Dynamically populate the menu sections.
@@ -64,9 +66,9 @@ namespace RestaurantMenu
         private void PopulateMenu()
         {
             // Populate the panels
-            PopulatePanel(StartersPanel, starters);
-            PopulatePanel(MainDishesPanel, mainDishes);
-            PopulatePanel(DessertsPanel, desserts);
+            PopulatePanel(StartersPanel, _starters);
+            PopulatePanel(MainDishesPanel, _mainDishes);
+            PopulatePanel(DessertsPanel, _desserts);
         }
 
 

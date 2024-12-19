@@ -34,6 +34,9 @@ namespace RestaurantMenu
             // Bind to the XAML elements
             DataContext = this;
         }
+
+
+
     }
 }
 
