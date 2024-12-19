@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace RestaurantMenu
 {
@@ -33,7 +34,8 @@ namespace RestaurantMenu
             {
                 if (string.IsNullOrWhiteSpace(value))
                 {
-                    throw new ArgumentException("Username cannot be null or empty.");
+                    MessageBox.Show("Username cannot be null or empty...", "Invalid data", MessageBoxButton.OK, MessageBoxImage.Error);
+                    //return;
                 }
                 username = value;
             }
@@ -87,7 +89,7 @@ namespace RestaurantMenu
             {
                 existingItem.Description = item.Description;
                 existingItem.Price = item.Price;
-                existingItem.Category = item.Category;
+                //existingItem.Category = item.Category;
                 existingItem.ImagePath = item.ImagePath;
             }
             else

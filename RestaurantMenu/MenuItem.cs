@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace RestaurantMenu
 {
@@ -30,7 +31,6 @@ namespace RestaurantMenu
         /// <param name="name">The name of the food item.</param>
         /// <param name="description">A short description of the food item.</param>
         /// <param name="price">The price of the food item. Must be non-negative.</param>
-        /// <param name="category">The category of the food item (e.g., Starters, MainDish, Dessert).</param>
         /// <param name="imagePath">The file path of the food item's image.</param>
         public MenuItem(string name, string description, double price, string imagePath)
         {
@@ -42,7 +42,7 @@ namespace RestaurantMenu
         }
 
         /// <summary>
-        /// Gets or sets the name of the food item.
+        ///    Gets or sets the name of the food item.
         /// </summary>
         public string Name
         {
@@ -51,7 +51,8 @@ namespace RestaurantMenu
             {
                 if (string.IsNullOrEmpty(value))
                 {
-                    throw new ArgumentNullException(nameof(Name), "Name cannot be null or empty.");
+                    MessageBox.Show("Name cannot be null or empty...", "Invalid data", MessageBoxButton.OK, MessageBoxImage.Error);
+                    //return;
                 }
                 name = value;
             }
@@ -67,7 +68,9 @@ namespace RestaurantMenu
             {
                 if (string.IsNullOrEmpty(value))
                 {
-                    throw new ArgumentNullException(nameof(Description), "Description cannot be null or empty.");
+                    MessageBox.Show("Description cannot be null or empty...", "Invalid data", MessageBoxButton.OK, MessageBoxImage.Error);
+                    //return;
+                    
                 }
                 description = value;
             }
@@ -83,7 +86,9 @@ namespace RestaurantMenu
             {
                 if (value < 0)
                 {
-                    throw new ArgumentOutOfRangeException(nameof(Price), "Price cannot be negative.");
+                    MessageBox.Show("Price cannot be negative...", "Invalid data", MessageBoxButton.OK, MessageBoxImage.Error);
+                    //return;
+                    
                 }
                 price = value;
             }
@@ -115,7 +120,8 @@ namespace RestaurantMenu
             {
                 if (string.IsNullOrEmpty(value))
                 {
-                    throw new ArgumentNullException(nameof(ImagePath), "ImagePath cannot be null or empty.");
+                    MessageBox.Show("Image Path cannot be null or empty, make sure it is present in the Images folder for it to show on screen...", "Invalid data", MessageBoxButton.OK, MessageBoxImage.Error);
+                    //return;
                 }
                 imagePath = value;
             }

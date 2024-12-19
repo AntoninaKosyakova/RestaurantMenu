@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace RestaurantMenu
 {
@@ -52,7 +53,8 @@ namespace RestaurantMenu
         {
             if (item == null)
             {
-                throw new ArgumentNullException(nameof(item), "Item cannot be null.");
+                MessageBox.Show("Item cannot be null...", "Invalid data", MessageBoxButton.OK, MessageBoxImage.Error);
+                //return;
             }
 
             OrderItem existingItem = FindExistingItem(item);
@@ -91,7 +93,8 @@ namespace RestaurantMenu
         {
             if (item == null)
             {
-                throw new ArgumentNullException(nameof(item), "Item cannot be null.");
+                MessageBox.Show("Item cannot be null...", "Invalid data", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
             }
 
             OrderItem itemToRemove = FindExistingItem(item);

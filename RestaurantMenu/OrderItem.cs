@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace RestaurantMenu
 {
@@ -33,7 +34,8 @@ namespace RestaurantMenu
             {
                 if (value == null)
                 {
-                    throw new ArgumentNullException(nameof(MenuItem), "MenuItem cannot be null.");
+                    MessageBox.Show("Menu Item cannot be null or empty...", "Invalid data", MessageBoxButton.OK, MessageBoxImage.Error);
+                    //return;
                 }
                 menuItem = value;
             }
@@ -49,7 +51,8 @@ namespace RestaurantMenu
             {
                 if (value < 1)
                 {
-                    throw new ArgumentOutOfRangeException(nameof(Quantity), "Quantity must be at least 1.");
+                    MessageBox.Show("Quantity should be at least 1....", "Invalid data", MessageBoxButton.OK, MessageBoxImage.Error);
+                    //return;
                 }
                 quantity = value;
             }
