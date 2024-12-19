@@ -7,7 +7,7 @@ using System.Windows;
 
 namespace RestaurantMenu
 {
-    //testing
+
     public class Manager
     {
         // Private fields for Username and Password
@@ -49,10 +49,10 @@ namespace RestaurantMenu
             }
         }
 
-        public static List<MenuItem> Starters 
-        { 
-            get { return _starters; } 
-            set {_starters = value; }
+        public static List<MenuItem> Starters
+        {
+            get { return _starters; }
+            set { _starters = value; }
         }
 
         public static List<MenuItem> MainDishes
@@ -108,21 +108,6 @@ namespace RestaurantMenu
         }
 
         /// <summary>
-        /// Adds a new item to the menu.
-        /// </summary>
-        /// <param name="item">The menu item to add.</param>
-        /// <param name="menu">The menu to which the item will be added.</param>
-        public void AddMenuItem(MenuItem item, List<MenuItem> menu)
-        {
-            if (item == null)
-            {
-                throw new ArgumentNullException(nameof(item), "Item cannot be null.");
-            }
-
-            menu.Add(item);
-        }
-
-        /// <summary>
         /// Edits the details of an existing menu item.
         /// </summary>
         /// <param name="item">The menu item with updated details.</param>
@@ -148,46 +133,51 @@ namespace RestaurantMenu
             }
         }
 
-        /// <summary>
-        /// Removes a menu item from the menu.
-        /// </summary>
-        /// <param name="item">The menu item to remove.</param>
-        /// <param name="menu">The menu from which the item will be removed.</param>
-        public void RemoveMenuItem(MenuItem item, List<MenuItem> menu)
+
+        public List<MenuItem> AddItem(MenuItem newItem, List<MenuItem> list)
         {
-            if (item == null)
+            if (list.Count >= 2 || newItem == null)
             {
-                throw new ArgumentNullException(nameof(item), "Item cannot be null.");
+                //message box
+                return null;
             }
 
-            MenuItem existingItem = FindExistingMenuItem(item, menu);
-            if (existingItem != null)
-            {
-                menu.Remove(existingItem);
-            }
-            else
-            {
-                throw new ArgumentException("Menu item not found.");
-            }
+            list.Add(newItem);
+            return list;
         }
 
-        /// <summary>
-        /// Finds an existing menu item by its name.
-        /// </summary>
-        /// <param name="item">The menu item to search for.</param>
-        /// <param name="menu">The menu in which to search.</param>
-        /// <returns>The existing MenuItem if found, otherwise null.</returns>
-        private MenuItem FindExistingMenuItem(MenuItem item, List<MenuItem> menu)
+        private MenuItem FindMenuItem(MenuItem item, List<MenuItem> list)
         {
-            foreach (MenuItem menuItem in menu)
+            foreach(MenuItem menuItem in list)
             {
-                if (menuItem.Name == item.Name)
-                {
+                if(menuItem == item)
                     return menuItem;
-                }
             }
             return null;
         }
+
+        public List<MenuItem> RemoveItem(MenuItem item, List<MenuItem> list)
+        {
+            if(item == null)
+            {
+                //message
+                return null;
+            }
+
+            MenuItem itemToRemove = FindMenuItem(item, list);
+            if(itemToRemove != null)
+                list.Remove(itemToRemove);
+
+            return list;
+        }
+
+        //public List<MenuItem> EditItem(MenuItem item, List<MenuItem> list)
+        //{
+        //    MenuItem newItemVersion = new MenuItem();
+
+        //}
+
+
     }
 
 }
