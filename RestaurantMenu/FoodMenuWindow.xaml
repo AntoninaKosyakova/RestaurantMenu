@@ -35,25 +35,18 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel  Grid.Column="0" Grid.ColumnSpan="4" Margin="0,15,-170,0">
-            <Grid>
-                
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-            
+                        
                 <TextBlock Text="FOOD MENU" 
                            FontSize="30" FontWeight="Bold" 
                            Foreground="#FFFFFF"
                            HorizontalAlignment="Center" VerticalAlignment="Center" 
                 />
-            </Grid>
+            
         </StackPanel>
 
         <StackPanel  Grid.Row="1" Grid.ColumnSpan="4" Margin="0,0,-170,12" Grid.RowSpan="2">
-
-            <TextBlock Text="(C) Sharp Minds" 
+           
+                <TextBlock Text="(C) Sharp Minds" 
                FontSize="15" 
                Foreground="#FFFFFF"
                HorizontalAlignment="Center" VerticalAlignment="Center" 
@@ -61,10 +54,14 @@
         </StackPanel>
 
         <StackPanel  Grid.Row="3" Grid.Column="1" Grid.RowSpan="2">
-
+            
             <GroupBox Header="Starters" FontSize="15" Foreground="#FFFFFF">
                 <!-- Add starters here -->
-                <StackPanel x:Name="StartersPanel" Orientation="Vertical" Margin="10"/>
+               
+
+                    <StackPanel x:Name="StartersPanel" Orientation="Vertical" Margin="10"/>
+
+               
 
             </GroupBox>
 

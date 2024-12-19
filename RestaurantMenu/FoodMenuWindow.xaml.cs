@@ -42,19 +42,19 @@ namespace RestaurantMenu
             starters = new List<MenuItem>
             {
                new MenuItem("Bruschetta al Pomodoro", "Grilled bread topped with fresh tomatoes, garlic, olive oil, and basil.", 6.00, MenuItem.CategoryEnum.Starters, "/Images/bread.jpg"),
-               new MenuItem("Caprese Salad", "Fresh mozzarella, tomatoes, basil, drizzled with balsamic glaze.", 9.50, MenuItem.CategoryEnum.Starters, "./../../Images/Salad.jpg")
+               new MenuItem("Caprese Salad", "Fresh mozzarella, tomatoes, basil, drizzled with balsamic glaze.", 9.50, MenuItem.CategoryEnum.Starters, "/Images/Salad.jpg")
             };
 
             mainDishes = new List<MenuItem>
             {
-                 new MenuItem("Lasagna al Forno", "Layers of pasta, Bolognese sauce, béchamel, and parmesan cheese.", 10.00, MenuItem.CategoryEnum.MainDish, "./../../Images/Lasagna.png"),
-                 new MenuItem("Risotto ai Funghi", "Creamy Arborio rice cooked with mushrooms, garlic, and parmesan.", 12.00, MenuItem.CategoryEnum.MainDish, "./../../Images/MushroomRisotto.png")
+                 new MenuItem("Lasagna al Forno", "Layers of pasta, Bolognese sauce, béchamel, and parmesan cheese.", 10.00, MenuItem.CategoryEnum.MainDish, "/Images/Lasagna.png"),
+                 new MenuItem("Risotto ai Funghi", "Creamy Arborio rice cooked with mushrooms, garlic, and parmesan.", 12.00, MenuItem.CategoryEnum.MainDish, "/Images/MushroomRisotto.png")
             };
 
             desserts = new List<MenuItem>
             {
-                new MenuItem("Tiramisu", "Layers of espresso-soaked ladyfingers, mascarpone cream, and cocoa powder.", 4.50, MenuItem.CategoryEnum.Dessert, "./../../Images/Tiramisu.png"),
-                new MenuItem("Panna Cotta", "Silky cooked cream dessert served with a berry coulis or caramel sauce.", 6.99, MenuItem.CategoryEnum.Dessert, "./../../Images/PannaCotta.jpg")
+                new MenuItem("Tiramisu", "Layers of espresso-soaked ladyfingers, mascarpone cream, and cocoa powder.", 4.50, MenuItem.CategoryEnum.Dessert, "/Images/Tiramisu.png"),
+                new MenuItem("Panna Cotta", "Silky cooked cream dessert served with a berry coulis or caramel sauce.", 6.99, MenuItem.CategoryEnum.Dessert, "/Images/PannaCotta.png")
             };
         }
 
@@ -81,9 +81,14 @@ namespace RestaurantMenu
             // Clear any existing content in the panel
             panel.Children.Clear();
 
+            // Create a new Grid for each panel
+            Grid itemGrid = new Grid();
+
             // Add a button for each menu item
             foreach (MenuItem item in menuItems)
             {
+                itemGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(2, GridUnitType.Star) });
+
                 // Create a horizontal StackPanel to hold the TextBlock and Button
                 StackPanel itemPanel = new StackPanel
                 {
@@ -103,11 +108,11 @@ namespace RestaurantMenu
                 // Create the Image for the dish
                 Image imgDish = new Image
                 {
-                    Source = new BitmapImage(new Uri(item.ImagePath, UriKind.Relative)),
+                    Source = new BitmapImage(new Uri(item.ImagePath, UriKind.RelativeOrAbsolute)),
                     Height = 50,
                     Width = 50,
                     Margin = new Thickness(5, 0, 10, 0),
-                    Stretch = Stretch.Uniform
+                    
                 };
 
                 // Create a button for the menu item
