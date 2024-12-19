@@ -41,20 +41,20 @@ namespace RestaurantMenu
         {
             starters = new List<MenuItem>
             {
-               new MenuItem("Bruschetta al Pomodoro", "Grilled bread topped with fresh tomatoes, garlic, olive oil, and basil.", 6.00, MenuItem.CategoryEnum.Starters, "Images/bread.jpeg"),
-               new MenuItem("Caprese Salad", "Fresh mozzarella, tomatoes, basil, drizzled with balsamic glaze.", 9.50, MenuItem.CategoryEnum.Starters, "Images/Salad.jpg")
+               new MenuItem("Bruschetta al Pomodoro", "Grilled bread topped with fresh tomatoes, garlic, olive oil, and basil.", 6.00, MenuItem.CategoryEnum.Starters, "./../../Images/bread.jpeg"),
+               new MenuItem("Caprese Salad", "Fresh mozzarella, tomatoes, basil, drizzled with balsamic glaze.", 9.50, MenuItem.CategoryEnum.Starters, "./../../Images/Salad.jpg")
             };
 
             mainDishes = new List<MenuItem>
             {
-                 new MenuItem("Lasagna al Forno", "Layers of pasta, Bolognese sauce, béchamel, and parmesan cheese.", 10.00, MenuItem.CategoryEnum.MainDish, "Images/Lasagna.png"),
-                 new MenuItem("Risotto ai Funghi", "Creamy Arborio rice cooked with mushrooms, garlic, and parmesan.", 12.00, MenuItem.CategoryEnum.MainDish, "Images/MushroomRisotto.png")
+                 new MenuItem("Lasagna al Forno", "Layers of pasta, Bolognese sauce, béchamel, and parmesan cheese.", 10.00, MenuItem.CategoryEnum.MainDish, "./../../Images/Lasagna.png"),
+                 new MenuItem("Risotto ai Funghi", "Creamy Arborio rice cooked with mushrooms, garlic, and parmesan.", 12.00, MenuItem.CategoryEnum.MainDish, "./../../Images/MushroomRisotto.png")
             };
 
             desserts = new List<MenuItem>
             {
-                new MenuItem("Tiramisu", "Layers of espresso-soaked ladyfingers, mascarpone cream, and cocoa powder.", 4.50, MenuItem.CategoryEnum.Dessert, "Images/Tiramisu.png"),
-                new MenuItem("Panna Cotta", "Silky cooked cream dessert served with a berry coulis or caramel sauce.", 6.99, MenuItem.CategoryEnum.Dessert, "Images/PannaCotta.jpg")
+                new MenuItem("Tiramisu", "Layers of espresso-soaked ladyfingers, mascarpone cream, and cocoa powder.", 4.50, MenuItem.CategoryEnum.Dessert, "./../../Images/Tiramisu.png"),
+                new MenuItem("Panna Cotta", "Silky cooked cream dessert served with a berry coulis or caramel sauce.", 6.99, MenuItem.CategoryEnum.Dessert, "./../../Images/PannaCotta.jpg")
             };
         }
 
@@ -95,9 +95,19 @@ namespace RestaurantMenu
                 TextBlock dishContent = new TextBlock
                 {
                     Text = item.ToString(),
-                    FontSize = 14,
+                    FontSize = 10,
                     Margin = new Thickness(5, 0, 10, 0), // Add spacing between TextBlock and Button
                     Foreground = new SolidColorBrush(Colors.White)
+                };
+
+                // Create the Image for the dish
+                Image imgDish = new Image
+                {
+                    Source = new BitmapImage(new Uri(item.ImagePath, UriKind.RelativeOrAbsolute)),
+                    Height = 50,
+                    Width = 50,
+                    Margin = new Thickness(5, 0, 10, 0),
+                    Stretch = Stretch.Uniform
                 };
 
                 // Create a button for the menu item
@@ -105,7 +115,10 @@ namespace RestaurantMenu
                 {
                     Content = "add", // Button label
                     Tag = item, // Store the MenuItem object in the button's Tag property
-                    Margin = new Thickness(5, 0, 0, 0) // Add some spacing around the button
+                    Margin = new Thickness(5), // Add some spacing around the button
+                    FontSize = 10,
+                    Height = 20,
+                    Width = 20
 
                 };
 
@@ -114,6 +127,7 @@ namespace RestaurantMenu
 
 
                 // Add the TextBlock and Button to the StackPanel
+                itemPanel.Children.Add(imgDish);
                 itemPanel.Children.Add(dishContent);
                 itemPanel.Children.Add(button);
 
