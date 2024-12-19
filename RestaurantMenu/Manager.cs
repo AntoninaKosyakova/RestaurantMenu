@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
+using System.Xml.Linq;
 
 namespace RestaurantMenu
 {
@@ -148,9 +144,9 @@ namespace RestaurantMenu
 
         private MenuItem FindMenuItem(MenuItem item, List<MenuItem> list)
         {
-            foreach(MenuItem menuItem in list)
+            foreach (MenuItem menuItem in list)
             {
-                if(menuItem == item)
+                if (menuItem == item)
                     return menuItem;
             }
             return null;
@@ -158,14 +154,14 @@ namespace RestaurantMenu
 
         public List<MenuItem> RemoveItem(MenuItem item, List<MenuItem> list)
         {
-            if(item == null)
+            if (item == null)
             {
                 MessageBox.Show("Item cannot be null...", "Invalid data", MessageBoxButton.OK, MessageBoxImage.Error);
                 return null;
             }
 
             MenuItem itemToRemove = FindMenuItem(item, list);
-            if(itemToRemove != null)
+            if (itemToRemove != null)
                 list.Remove(itemToRemove);
 
             return list;
@@ -173,14 +169,18 @@ namespace RestaurantMenu
 
         public List<MenuItem> EditItem(MenuItem item, List<MenuItem> list)
         {
-            MenuItem newItemVersion = new MenuItem("","",4,"");
-            newItemVersion = new MenuItem
+            
+            MenuItem newItemVersion = new MenuItem
             (
-                newItemVersion.Name = "g",
-                newItemVersion.Description = "item.Description",
-                newItemVersion.Price = 100.7,
-                newItemVersion.ImagePath = "item.ImagePath"
+              EditNameTextBox.Text,
+              item.Description,
+              item.Price,
+              item.ImagePath
+
            );
+
+            // reassign
+
 
 
             return list;
