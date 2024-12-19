@@ -27,8 +27,12 @@ namespace RestaurantMenu
         {
             InitializeComponent(); // Initializes the WPF components from XAML
             order = new List<MenuItem>(); //// Initialize the order list
+           
             // Initialize menu items
-            _starters = Manager._starters;
+            //_starters = Manager.Starters;
+            //_mainDishes = Manager.MainDishes;
+            //_desserts = Manager.Desserts;
+            LoadMenuItems();
 
             PopulateMenu();  // Populate UI dynamically
 
@@ -36,29 +40,29 @@ namespace RestaurantMenu
 
 
 
-        ///// <summary>
-        /////      Load menu items into categories.
-        ///// </summary>
-        //private void LoadMenuItems()
-        //{
-        //    _starters = new List<MenuItem>
-        //    {
-        //       new MenuItem("Bruschetta al Pomodoro", "Grilled bread topped with fresh tomatoes, garlic, olive oil, and basil.", 6.00, "/Images/bread.jpg"),
-        //       new MenuItem("Caprese Salad", "Fresh mozzarella, tomatoes, basil, drizzled with balsamic glaze.", 9.50, "/Images/Salad.jpg")
-        //    };
+        /// <summary>
+        ///      Load menu items into categories.
+        /// </summary>
+        private void LoadMenuItems()
+        {
+            _starters = new List<MenuItem>
+            {
+               new MenuItem("Bruschetta al Pomodoro", "Grilled bread topped with fresh tomatoes, garlic, olive oil, and basil.", 6.00, "/Images/bread.jpg"),
+               new MenuItem("Caprese Salad", "Fresh mozzarella, tomatoes, basil, drizzled with balsamic glaze.", 9.50, "/Images/Salad.jpg")
+            };
 
-        //    _mainDishes = new List<MenuItem>
-        //    {
-        //         new MenuItem("Lasagna al Forno", "Layers of pasta, Bolognese sauce, béchamel, and parmesan cheese.", 10.00, "/Images/Lasagna.png"),
-        //         new MenuItem("Risotto ai Funghi", "Creamy Arborio rice cooked with mushrooms, garlic, and parmesan.", 12.00, "/Images/MushroomRisotto.png")
-        //    };
+            _mainDishes = new List<MenuItem>
+            {
+                 new MenuItem("Lasagna al Forno", "Layers of pasta, Bolognese sauce, béchamel, and parmesan cheese.", 10.00, "/Images/Lasagna.png"),
+                 new MenuItem("Risotto ai Funghi", "Creamy Arborio rice cooked with mushrooms, garlic, and parmesan.", 12.00, "/Images/MushroomRisotto.png")
+            };
 
-        //    _desserts = new List<MenuItem>
-        //    {
-        //        new MenuItem("Tiramisu", "Layers of espresso-soaked ladyfingers, mascarpone cream, and cocoa powder.", 4.50, "/Images/Tiramisu.png"),
-        //        new MenuItem("Panna Cotta", "Silky cooked cream dessert served with a berry coulis or caramel sauce.", 6.99, "/Images/PannaCotta.png")
-        //    };
-        //}
+            _desserts = new List<MenuItem>
+            {
+                new MenuItem("Tiramisu", "Layers of espresso-soaked ladyfingers, mascarpone cream, and cocoa powder.", 4.50, "/Images/Tiramisu.png"),
+                new MenuItem("Panna Cotta", "Silky cooked cream dessert served with a berry coulis or caramel sauce.", 6.99, "/Images/PannaCotta.png")
+            };
+        }
 
         /// <summary>
         ///      Dynamically populate the menu sections.
