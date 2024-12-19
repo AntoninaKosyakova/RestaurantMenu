@@ -5,23 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RestaurantMenu"
         mc:Ignorable="d"
-        Title="FoodMenuWindow" Height="1000" Width="800" 
+        Title="FoodMenuWindow" Height="900" Width="800" 
         FontFamily = "Times New Roman"
         Background="#4B2C2C">
     <Grid Margin="15,30,15,30">
 
         <Grid.RowDefinitions>
 
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="55"/>
-            <RowDefinition Height="45"/>
-            <RowDefinition Height="55"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="35"/>
             <RowDefinition Height="220"/>
-            <RowDefinition Height="55"/>
+            <RowDefinition Height="35"/>
             <RowDefinition Height="220"/>
-            <RowDefinition Height="55"/>
+            <RowDefinition Height="35"/>
             <RowDefinition Height="220"/>
-            
+
 
         </Grid.RowDefinitions>
 
@@ -34,16 +34,75 @@
 
         </Grid.ColumnDefinitions>
 
+        <StackPanel  Grid.Column="0" Grid.ColumnSpan="4" Margin="0,15,-170,0">
+
+            <TextBlock Text="FOOD MENU" 
+                       FontSize="30" FontWeight="Bold" 
+                       Foreground="#FFFFFF"
+                       HorizontalAlignment="Center" VerticalAlignment="Center" 
+            />
+        </StackPanel>
+
+        <StackPanel  Grid.Row="1" Grid.ColumnSpan="4" Margin="0,0,-170,12" Grid.RowSpan="2">
+
+            <TextBlock Text="(C) Sharp Minds" 
+               FontSize="15" 
+               Foreground="#FFFFFF"
+               HorizontalAlignment="Center" VerticalAlignment="Center" 
+            />
+        </StackPanel>
+
+        <StackPanel  Grid.Row="3" Grid.Column="1" Grid.RowSpan="2">
+
+            <GroupBox Header="Starters" FontSize="15" Foreground="#FFFFFF">
+                <!-- Add starters here -->
+                <StackPanel x:Name="StartersPanel" Orientation="Vertical" Margin="10"/>
+
+            </GroupBox>
+
+        </StackPanel>
 
 
+        <StackPanel  Grid.Row="5" Grid.Column="1" Grid.RowSpan="2">
+
+            <GroupBox Header="MainDishes" FontSize="15" Foreground="#FFFFFF">
+                <!-- Add Main Dishes here -->
+                <StackPanel x:Name="MainDishesPanel" Orientation="Vertical" Margin="10"/>
+                
+            </GroupBox>
+
+        </StackPanel>
 
 
+        <StackPanel  Grid.Row="7" Grid.Column="1" Grid.RowSpan="2">
+
+            <GroupBox Header="Desserts" FontSize="15" Foreground="#FFFFFF">
+                <!-- Add Desserts here -->
+                <StackPanel x:Name="DessertsPanel" Orientation="Vertical" Margin="10"/>
+
+            </GroupBox>
+
+        </StackPanel>
 
 
+        <StackPanel  Grid.Row="3" Grid.Column="3" Grid.RowSpan="6" Margin="0,0,-180,0">
 
+            <GroupBox x:Name="YourOrderGroupBox" Header="Your Order" FontSize="15" Foreground="#FFFFFF" Height="768">
+                <!-- Order Review -->
+                
+                <StackPanel>
+                    <TextBlock x:Name="OrderSummary" 
+                               Text="No items in your order." 
+                               FontSize="12" Foreground="White" 
+                               Margin="5"/>
+                    <Button Content="Clear Order"
+                            Click="ClearOrderButton_Click"
+                            />
+                </StackPanel>
+                
+            </GroupBox>
 
-
-
+        </StackPanel>
 
     </Grid>
 </Window>
