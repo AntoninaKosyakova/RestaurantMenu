@@ -35,6 +35,9 @@ namespace RestaurantMenu
         private void ManagerButton_Click(object sender, RoutedEventArgs e)
         {
            //open manager's window
+           MenuPage menuPageForManager = new MenuPage();
+           menuPageForManager.Show();
+           this.Close();
         }
 
 
