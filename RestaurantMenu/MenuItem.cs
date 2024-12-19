@@ -12,7 +12,7 @@ namespace RestaurantMenu
         private string name;
         private string description;
         private double price;
-        private CategoryEnum category;
+       // private CategoryEnum category;
         private string imagePath;
         private const int SPACE = -40;
 
@@ -32,12 +32,12 @@ namespace RestaurantMenu
         /// <param name="price">The price of the food item. Must be non-negative.</param>
         /// <param name="category">The category of the food item (e.g., Starters, MainDish, Dessert).</param>
         /// <param name="imagePath">The file path of the food item's image.</param>
-        public MenuItem(string name, string description, double price, CategoryEnum category, string imagePath)
+        public MenuItem(string name, string description, double price, string imagePath)
         {
             Name = name;
             Description = description;
             Price = price;
-            Category = category;
+           // Category = category;
             ImagePath = imagePath;
         }
 
@@ -89,21 +89,21 @@ namespace RestaurantMenu
             }
         }
 
-        /// <summary>
-        /// Gets or sets the category of the food item.
-        /// </summary>
-        public CategoryEnum Category
-        {
-            get { return category; }
-            set
-            {
-                if (!Enum.IsDefined(typeof(CategoryEnum), value))
-                {
-                    throw new ArgumentOutOfRangeException(nameof(Category), "Invalid category.");
-                }
-                category = value;
-            }
-        }
+        ///// <summary>
+        ///// Gets or sets the category of the food item.
+        ///// </summary>
+        //public CategoryEnum Category
+        //{
+        //    get { return category; }
+        //    set
+        //    {
+        //        if (!Enum.IsDefined(typeof(CategoryEnum), value))
+        //        {
+        //            throw new ArgumentOutOfRangeException(nameof(Category), "Invalid category.");
+        //        }
+        //        category = value;
+        //    }
+        //}
 
         /// <summary>
         /// Gets or sets the file path of the food item's image.
