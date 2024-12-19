@@ -138,7 +138,7 @@ namespace RestaurantMenu
         {
             if (list.Count >= 2 || newItem == null)
             {
-                //message box
+                MessageBox.Show("List capacity cannot add if there is already 2 dishes...", "Invalid data", MessageBoxButton.OK, MessageBoxImage.Error);
                 return null;
             }
 
@@ -160,7 +160,7 @@ namespace RestaurantMenu
         {
             if(item == null)
             {
-                //message
+                MessageBox.Show("Item cannot be null...", "Invalid data", MessageBoxButton.OK, MessageBoxImage.Error);
                 return null;
             }
 
@@ -173,7 +173,11 @@ namespace RestaurantMenu
 
         //public List<MenuItem> EditItem(MenuItem item, List<MenuItem> list)
         //{
-        //    MenuItem newItemVersion = new MenuItem();
+        //    MenuItem newItemVersion = new MenuItem
+        //    (
+                
+        //    );
+
 
         //}
 
