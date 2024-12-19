@@ -41,7 +41,7 @@ namespace RestaurantMenu
         {
             starters = new List<MenuItem>
             {
-               new MenuItem("Bruschetta al Pomodoro", "Grilled bread topped with fresh tomatoes, garlic, olive oil, and basil.", 6.00, MenuItem.CategoryEnum.Starters, "./../../Images/bread.jpeg"),
+               new MenuItem("Bruschetta al Pomodoro", "Grilled bread topped with fresh tomatoes, garlic, olive oil, and basil.", 6.00, MenuItem.CategoryEnum.Starters, "/Images/bread.jpg"),
                new MenuItem("Caprese Salad", "Fresh mozzarella, tomatoes, basil, drizzled with balsamic glaze.", 9.50, MenuItem.CategoryEnum.Starters, "./../../Images/Salad.jpg")
             };
 
@@ -95,7 +95,7 @@ namespace RestaurantMenu
                 TextBlock dishContent = new TextBlock
                 {
                     Text = item.ToString(),
-                    FontSize = 10,
+                    FontSize = 8,
                     Margin = new Thickness(5, 0, 10, 0), // Add spacing between TextBlock and Button
                     Foreground = new SolidColorBrush(Colors.White)
                 };
@@ -103,7 +103,7 @@ namespace RestaurantMenu
                 // Create the Image for the dish
                 Image imgDish = new Image
                 {
-                    Source = new BitmapImage(new Uri(item.ImagePath, UriKind.RelativeOrAbsolute)),
+                    Source = new BitmapImage(new Uri(item.ImagePath, UriKind.Relative)),
                     Height = 50,
                     Width = 50,
                     Margin = new Thickness(5, 0, 10, 0),
@@ -115,7 +115,7 @@ namespace RestaurantMenu
                 {
                     Content = "add", // Button label
                     Tag = item, // Store the MenuItem object in the button's Tag property
-                    Margin = new Thickness(5), // Add some spacing around the button
+                    //Margin = new Thickness(5), // Add some spacing around the button
                     FontSize = 10,
                     Height = 20,
                     Width = 20
@@ -131,8 +131,8 @@ namespace RestaurantMenu
                 itemPanel.Children.Add(dishContent);
                 itemPanel.Children.Add(button);
 
-                // Add the StackPanel to the appropriate parent panel (e.g., StartersPanel)
-                StartersPanel.Children.Add(itemPanel);
+                // Add the StackPanel to the appropriate parent panel
+                panel.Children.Add(itemPanel);
             }
         }
 
@@ -191,7 +191,7 @@ namespace RestaurantMenu
             // Update the order summary display
             UpdateOrderSummary();
         }
-    
+
 
     }
 }

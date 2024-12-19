@@ -35,12 +35,20 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel  Grid.Column="0" Grid.ColumnSpan="4" Margin="0,15,-170,0">
-
-            <TextBlock Text="FOOD MENU" 
-                       FontSize="30" FontWeight="Bold" 
-                       Foreground="#FFFFFF"
-                       HorizontalAlignment="Center" VerticalAlignment="Center" 
-            />
+            <Grid>
+                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+            
+                <TextBlock Text="FOOD MENU" 
+                           FontSize="30" FontWeight="Bold" 
+                           Foreground="#FFFFFF"
+                           HorizontalAlignment="Center" VerticalAlignment="Center" 
+                />
+            </Grid>
         </StackPanel>
 
         <StackPanel  Grid.Row="1" Grid.ColumnSpan="4" Margin="0,0,-170,12" Grid.RowSpan="2">
