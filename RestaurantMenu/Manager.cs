@@ -171,15 +171,20 @@ namespace RestaurantMenu
             return list;
         }
 
-        //public List<MenuItem> EditItem(MenuItem item, List<MenuItem> list)
-        //{
-        //    MenuItem newItemVersion = new MenuItem
-        //    (
-                
-        //    );
+        public List<MenuItem> EditItem(MenuItem item, List<MenuItem> list)
+        {
+            MenuItem newItemVersion = new MenuItem("","",4,"");
+            newItemVersion = new MenuItem
+            (
+                newItemVersion.Name = "g",
+                newItemVersion.Description = "item.Description",
+                newItemVersion.Price = 100.7,
+                newItemVersion.ImagePath = "item.ImagePath"
+           );
 
 
-        //}
+            return list;
+        }
 
 
     }
