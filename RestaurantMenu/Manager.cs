@@ -7,6 +7,7 @@ using System.Windows;
 
 namespace RestaurantMenu
 {
+    //testing
     public class Manager
     {
         // Private fields for Username and Password
