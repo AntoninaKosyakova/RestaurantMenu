@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System.Collections.Generic;
+using System.Windows;
+using System.Windows.Input;
 
 namespace RestaurantMenu
 {
@@ -8,123 +10,96 @@ namespace RestaurantMenu
         {
             InitializeComponent();
 
-            // Bind Manager's lists to the XAML elements
+            // Set the DataContext for data binding
             DataContext = this;
+
+            // Initialize commands for edit and delete actions
+            EditCommand = new RelayCommand(EditItem);
+            DeleteCommand = new RelayCommand(DeleteItem);
         }
 
-        public List<MenuItem> Starters => Manager.Starters;
-        public List<MenuItem> MainDishes => Manager.MainDishes;
-        public List<MenuItem> Desserts => Manager.Desserts;
+        // Properties to bind the menu sections to the UI
+        public List<MenuItem> Starters
+        {
+            get { return Manager.Starters; } // List of starters
+        }
 
+        public List<MenuItem> MainDishes
+        {
+            get { return Manager.MainDishes; } // List of main dishes
+        }
+
+        public List<MenuItem> Desserts
+        {
+            get { return Manager.Desserts; } // List of desserts
+        }
+
+
+        // ICommand properties for binding buttons to logic
+        public ICommand EditCommand { get; }
+        public ICommand DeleteCommand { get; }
+
+        // Refresh the UI to reflect updated data
         public void RefreshUI()
         {
-            DataContext = null; // Clear the binding
+            DataContext = null; // Clear the current binding
             DataContext = this; // Rebind the updated data
         }
 
-        private void EditStarter1_Click(object sender, RoutedEventArgs e)
+        // Logic for editing an item
+        private void EditItem(object parameter)
         {
-            EditItem editTheItem = new EditItem(Starters[0], Starters);
-            editTheItem.Owner = this; // Set the current MenuPage as the owner
-            editTheItem.ShowDialog(); // Use ShowDialog to make it a modal window
-
-            // Refresh the UI after returning from EditItem
-            RefreshUI();
+            if (parameter is MenuItem item)
+            {
+                // Fetch the list containing the item
+                var list = Manager.GetListForItem(item);
+                if (list != null)
+                {
+                    // Open the EditItem window for the selected item
+                    EditItem editWindow = new EditItem(item, list)
+                    {
+                        Owner = this // Set this window as the owner
+                    };
+                    editWindow.ShowDialog(); // Display the dialog
+                    RefreshUI(); // Update the UI
+                }
+            }
         }
 
-        // Repeat similar logic for other edit button event handlers
-        private void EditStarter2_Click(object sender, RoutedEventArgs e)
+        // Logic for deleting an item
+        private void DeleteItem(object parameter)
         {
-            EditItem editTheItem = new EditItem(Starters[1], Starters);
-            editTheItem.Owner = this;
-            editTheItem.ShowDialog();
-            RefreshUI();
+            if (parameter is MenuItem item)
+            {
+                // Fetch the list containing the item and remove it
+                var list = Manager.GetListForItem(item);
+                if (list != null)
+                {
+                    list.Remove(item); // Remove the item
+                    MessageBox.Show($"{item.Name} has been removed.", "Item Deleted", MessageBoxButton.OK, MessageBoxImage.Information);
+                    RefreshUI(); // Update the UI
+                }
+            }
         }
 
-        private void EditMain1_Click(object sender, RoutedEventArgs e)
-        {
-            EditItem editTheItem = new EditItem(MainDishes[0], MainDishes);
-            editTheItem.Owner = this;
-            editTheItem.ShowDialog();
-            RefreshUI();
-        }
-
-        private void EditMain2_Click(object sender, RoutedEventArgs e)
-        {
-            EditItem editTheItem = new EditItem(MainDishes[1], MainDishes);
-            editTheItem.Owner = this;
-            editTheItem.ShowDialog();
-            RefreshUI();
-        }
-
-        private void EditDessert1_Click(object sender, RoutedEventArgs e)
-        {
-            EditItem editTheItem = new EditItem(Desserts[0], Desserts);
-            editTheItem.Owner = this;
-            editTheItem.ShowDialog();
-            RefreshUI();
-        }
-
-        private void EditDessert2_Click(object sender, RoutedEventArgs e)
-        {
-            EditItem editTheItem = new EditItem(Desserts[1], Desserts);
-            editTheItem.Owner = this;
-            editTheItem.ShowDialog();
-            RefreshUI();
-        }
-
-        private void DeleteStarter1_Click(object sender, RoutedEventArgs e)
-        {
-           
-           
-        }
-
-        private void DeleteStarter2_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void DeleteMain1_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void DeleteMain2_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void DeleteDessert1_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-        private void DeleteDessert2_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Orders_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void DailySalesSummary_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
+        // Logic for navigating to the food menu window
         private void ViewFoodMenu_Click(object sender, RoutedEventArgs e)
         {
-            // Create an instance of the FoodMenuWindow
             FoodMenuWindow foodMenuWindow = new FoodMenuWindow();
-
-            // Show the FoodMenuWindow
             foodMenuWindow.Show();
-
-            // Optionally, close or hide the current MenuPage
-            this.Close();
+            this.Close(); // Close the current window
         }
 
+        // Logic for daily sales summary button click
+        private void DailySalesSummary_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Daily Sales Summary clicked!", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
 
+        // Logic for orders button click
+        private void Orders_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Orders clicked!", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
     }
 }

@@ -147,7 +147,13 @@ namespace RestaurantMenu
             return list;
         }
 
-      
+        public static List<MenuItem> GetListForItem(MenuItem item)
+        {
+            if (Starters.Contains(item)) return Starters;
+            if (MainDishes.Contains(item)) return MainDishes;
+            if (Desserts.Contains(item)) return Desserts;
+            return null;
+        }
 
     }
 
