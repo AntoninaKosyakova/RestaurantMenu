@@ -9,20 +9,26 @@ namespace RestaurantMenu
     {
         private MenuItem _item;
         private List<MenuItem> _list;
-        private MenuPage _menuPage; // Reference to the MenuPage
+       // private MenuPage _menuPage; // Reference to the MenuPage
 
-        public EditItem(MenuItem item, List<MenuItem> list, MenuPage menuPage)
+        public EditItem(MenuItem item, List<MenuItem> list)
         {
             InitializeComponent();
             _item = item;
             _list = list;
-            _menuPage = menuPage;
+            //_menuPage = menuPage;
 
             // Populate the input fields with the current item's data
             EditName.Text = _item.Name;
             EditDescription.Text = _item.Description;
             EditPrice.Text = _item.Price.ToString();
             EditImagePath.Text = _item.ImagePath;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            UpdateItem(); // Update the item in the list
+            this.Close(); // Close the EditItem window
         }
 
         private void UpdateItem()
@@ -33,15 +39,7 @@ namespace RestaurantMenu
             _item.Price = ValidateAndConvertToDouble(EditPrice.Text);
             _item.ImagePath = EditImagePath.Text;
 
-            // Notify MenuPage to refresh its UI
-            _menuPage.RefreshUI();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            UpdateItem();
-            _menuPage.Show(); // Show the MenuPage again
-            this.Close();     // Close the EditItem window
+            // No need to notify MenuPage explicitly; it will refresh itself
         }
 
         private double ValidateAndConvertToDouble(string input)

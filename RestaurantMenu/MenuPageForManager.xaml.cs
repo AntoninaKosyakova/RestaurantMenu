@@ -41,52 +41,55 @@ namespace RestaurantMenu
             DataContext = this; // Rebind the updated data
         }
 
-
         private void EditStarter1_Click(object sender, RoutedEventArgs e)
         {
-            EditItem editTheItem = new EditItem(Starters[0], Starters, this);
-            editTheItem.Show();
-            this.Hide(); // Optionally hide the current window
+            EditItem editTheItem = new EditItem(Starters[0], Starters);
+            editTheItem.Owner = this; // Set the current MenuPage as the owner
+            editTheItem.ShowDialog(); // Use ShowDialog to make it a modal window
+
+            // Refresh the UI after returning from EditItem
+            RefreshUI();
         }
 
+        // Repeat similar logic for other edit button event handlers
         private void EditStarter2_Click(object sender, RoutedEventArgs e)
         {
-            //open EditItem's window
-            EditItem editTheItem = new EditItem(Starters[1], Starters, this);
-            editTheItem.Show();
-            this.Close();
+            EditItem editTheItem = new EditItem(Starters[1], Starters);
+            editTheItem.Owner = this;
+            editTheItem.ShowDialog();
+            RefreshUI();
         }
 
         private void EditMain1_Click(object sender, RoutedEventArgs e)
         {
-            //open EditItem's window
-            EditItem editTheItem = new EditItem(MainDishes[0], MainDishes, this);
-            editTheItem.Show();
-            this.Close();
+            EditItem editTheItem = new EditItem(MainDishes[0], MainDishes);
+            editTheItem.Owner = this;
+            editTheItem.ShowDialog();
+            RefreshUI();
         }
 
         private void EditMain2_Click(object sender, RoutedEventArgs e)
         {
-            //open EditItem's window
-            EditItem editTheItem = new EditItem(MainDishes[1], MainDishes, this);
-            editTheItem.Show();
-            this.Close();
+            EditItem editTheItem = new EditItem(MainDishes[1], MainDishes);
+            editTheItem.Owner = this;
+            editTheItem.ShowDialog();
+            RefreshUI();
         }
 
         private void EditDessert1_Click(object sender, RoutedEventArgs e)
         {
-            //open EditItem's window
-            EditItem editTheItem = new EditItem(Desserts[0], Desserts, this);
-            editTheItem.Show();
-            this.Close();
+            EditItem editTheItem = new EditItem(Desserts[0], Desserts);
+            editTheItem.Owner = this;
+            editTheItem.ShowDialog();
+            RefreshUI();
         }
 
         private void EditDessert2_Click(object sender, RoutedEventArgs e)
         {
-            //open EditItem's window
-            EditItem editTheItem = new EditItem(Desserts[1], Desserts, this);
-            editTheItem.Show();
-            this.Close();
+            EditItem editTheItem = new EditItem(Desserts[1], Desserts);
+            editTheItem.Owner = this;
+            editTheItem.ShowDialog();
+            RefreshUI();
         }
 
         private void DeleteStarter1_Click(object sender, RoutedEventArgs e)
