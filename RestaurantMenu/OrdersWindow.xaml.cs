@@ -14,7 +14,7 @@ namespace RestaurantMenu
 
             // Bind the orders list to the UI
             // Each order is displayed with an Order ID, Items summary, and Total Price.
-            DataContext = Manager.PlacedOrders.Select((order, index) => new
+            DataContext = MenuManager.PlacedOrders.Select((order, index) => new
             {
                 // Generate a readable Order ID (index + 1)
                 OrderId = index + 1,
