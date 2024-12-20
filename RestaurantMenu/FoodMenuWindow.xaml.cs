@@ -1,7 +1,9 @@
-﻿using System.Windows;
+﻿using RestaurantMenu.Models;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using MenuItem = RestaurantMenu.Models.MenuItem;
 
 namespace RestaurantMenu
 {

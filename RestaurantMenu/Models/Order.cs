@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace RestaurantMenu
+namespace RestaurantMenu.Models
 {
     public class Order
     {
@@ -94,7 +94,7 @@ namespace RestaurantMenu
             orderItems.Clear();
         }
 
-        
+
     }
 
 

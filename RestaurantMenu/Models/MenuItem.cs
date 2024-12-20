@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace RestaurantMenu
+namespace RestaurantMenu.Models
 {
     public class MenuItem
     {
@@ -16,7 +16,7 @@ namespace RestaurantMenu
         private string imagePath;
         private const int SPACE = -40;
 
-        
+
 
         /// <summary>
         /// Initializes a new instance of the MenuItem class with the specified details.
@@ -62,7 +62,7 @@ namespace RestaurantMenu
                 {
                     MessageBox.Show("Description cannot be null or empty...", "Invalid data", MessageBoxButton.OK, MessageBoxImage.Error);
                     //return;
-                    
+
                 }
                 description = value;
             }
@@ -80,7 +80,7 @@ namespace RestaurantMenu
                 {
                     MessageBox.Show("Price cannot be negative...", "Invalid data", MessageBoxButton.OK, MessageBoxImage.Error);
                     //return;
-                    
+
                 }
                 price = value;
             }
@@ -113,6 +113,6 @@ namespace RestaurantMenu
         }
     }
 }
-   
+
 
 

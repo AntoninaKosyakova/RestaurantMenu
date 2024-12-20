@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using RestaurantMenu.Models;
+using System.Windows;
 
 namespace RestaurantMenu
 {

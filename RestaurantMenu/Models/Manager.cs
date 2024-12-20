@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace RestaurantMenu
+namespace RestaurantMenu.Models
 {
 
     public class Manager

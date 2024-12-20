@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace RestaurantMenu
+namespace RestaurantMenu.Models
 {
     public class RelayCommand : ICommand
     {

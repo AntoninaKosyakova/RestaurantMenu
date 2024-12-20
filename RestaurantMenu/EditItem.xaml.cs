@@ -1,7 +1,9 @@
-﻿using System;
+﻿using RestaurantMenu.Models;
+using System;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
+using MenuItem = RestaurantMenu.Models.MenuItem;
 
 namespace RestaurantMenu
 {

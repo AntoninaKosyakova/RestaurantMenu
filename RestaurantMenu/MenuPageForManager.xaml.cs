@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using RestaurantMenu.Models;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Input;
 
