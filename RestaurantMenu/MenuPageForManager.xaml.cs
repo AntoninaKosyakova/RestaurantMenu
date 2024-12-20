@@ -113,6 +113,18 @@ namespace RestaurantMenu
 
         }
 
+        private void ViewFoodMenu_Click(object sender, RoutedEventArgs e)
+        {
+            // Create an instance of the FoodMenuWindow
+            FoodMenuWindow foodMenuWindow = new FoodMenuWindow();
+
+            // Show the FoodMenuWindow
+            foodMenuWindow.Show();
+
+            // Optionally, close or hide the current MenuPage
+            this.Close();
+        }
+
 
     }
 }
