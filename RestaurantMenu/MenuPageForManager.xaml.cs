@@ -35,17 +35,24 @@ namespace RestaurantMenu
             DataContext = this;
         }
 
+        public void RefreshUI()
+        {
+            DataContext = null; // Clear the binding
+            DataContext = this; // Rebind the updated data
+        }
+
+
         private void EditStarter1_Click(object sender, RoutedEventArgs e)
         {
-            //open EditItem's window
-            EditItem editTheItem = new EditItem(Starters[0], Starters);
+            EditItem editTheItem = new EditItem(Starters[0], Starters, this);
             editTheItem.Show();
-            this.Close();
+            this.Hide(); // Optionally hide the current window
         }
+
         private void EditStarter2_Click(object sender, RoutedEventArgs e)
         {
             //open EditItem's window
-            EditItem editTheItem = new EditItem(Starters[1], Starters);
+            EditItem editTheItem = new EditItem(Starters[1], Starters, this);
             editTheItem.Show();
             this.Close();
         }
@@ -53,7 +60,7 @@ namespace RestaurantMenu
         private void EditMain1_Click(object sender, RoutedEventArgs e)
         {
             //open EditItem's window
-            EditItem editTheItem = new EditItem(MainDishes[0], MainDishes);
+            EditItem editTheItem = new EditItem(MainDishes[0], MainDishes, this);
             editTheItem.Show();
             this.Close();
         }
@@ -61,7 +68,7 @@ namespace RestaurantMenu
         private void EditMain2_Click(object sender, RoutedEventArgs e)
         {
             //open EditItem's window
-            EditItem editTheItem = new EditItem(MainDishes[1], MainDishes);
+            EditItem editTheItem = new EditItem(MainDishes[1], MainDishes, this);
             editTheItem.Show();
             this.Close();
         }
@@ -69,7 +76,7 @@ namespace RestaurantMenu
         private void EditDessert1_Click(object sender, RoutedEventArgs e)
         {
             //open EditItem's window
-            EditItem editTheItem = new EditItem(Desserts[0], Desserts);
+            EditItem editTheItem = new EditItem(Desserts[0], Desserts, this);
             editTheItem.Show();
             this.Close();
         }
@@ -77,7 +84,7 @@ namespace RestaurantMenu
         private void EditDessert2_Click(object sender, RoutedEventArgs e)
         {
             //open EditItem's window
-            EditItem editTheItem = new EditItem(Desserts[1], Desserts);
+            EditItem editTheItem = new EditItem(Desserts[1], Desserts, this);
             editTheItem.Show();
             this.Close();
         }

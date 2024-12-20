@@ -29,24 +29,24 @@
                             <TextBlock Text="Starters" FontSize="18" FontWeight="Bold"/>
                             <Separator/>
 
-                            <!-- Dish 1 -->
+                            <!-- Starter 1 -->
                             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0,10">
                                 <StackPanel Width="600">
-                                    <TextBlock Text="Starter 1" FontWeight="Bold"/>
-                                    <TextBlock Text="Description of Starter 1" TextWrapping="Wrap" FontSize="12"/>
+                                    <TextBlock Text="{Binding Starters[0].Name}" FontWeight="Bold"/>
+                                    <TextBlock Text="{Binding Starters[0].Description}" TextWrapping="Wrap" FontSize="12"/>
                                 </StackPanel>
-                                <TextBlock Text="$10.00" Width="50" VerticalAlignment="Center"/>
+                                <TextBlock Text="{Binding Starters[0].Price, StringFormat=C}" Width="50" VerticalAlignment="Center"/>
                                 <Button Content="Edit" Width="60" Margin="5,0" Click="EditStarter1_Click"/>
                                 <Button Content="Delete" Width="60" Margin="5,0" Click="DeleteStarter1_Click"/>
                             </StackPanel>
 
-                            <!-- Dish 2 -->
+                            <!-- Starter 2 -->
                             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0,10">
                                 <StackPanel Width="600">
-                                    <TextBlock Text="Starter 2" FontWeight="Bold"/>
-                                    <TextBlock Text="Description of Starter 2" TextWrapping="Wrap" FontSize="12"/>
+                                    <TextBlock Text="{Binding Starters[1].Name}" FontWeight="Bold"/>
+                                    <TextBlock Text="{Binding Starters[1].Description}" TextWrapping="Wrap" FontSize="12"/>
                                 </StackPanel>
-                                <TextBlock Text="$12.00" Width="50" VerticalAlignment="Center"/>
+                                <TextBlock Text="{Binding Starters[1].Price, StringFormat=C}" Width="50" VerticalAlignment="Center"/>
                                 <Button Content="Edit" Width="60" Margin="5,0" Click="EditStarter2_Click"/>
                                 <Button Content="Delete" Width="60" Margin="5,0" Click="DeleteStarter2_Click"/>
                             </StackPanel>
@@ -61,24 +61,24 @@
                             <TextBlock Text="Main Dishes" FontSize="18" FontWeight="Bold"/>
                             <Separator/>
 
-                            <!-- Dish 3 -->
+                            <!-- Main Dish 1 -->
                             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0,10">
                                 <StackPanel Width="600">
-                                    <TextBlock Text="Main Dish 1" FontWeight="Bold"/>
-                                    <TextBlock Text="Description of Main Dish 1" TextWrapping="Wrap" FontSize="12"/>
+                                    <TextBlock Text="{Binding MainDishes[0].Name}" FontWeight="Bold"/>
+                                    <TextBlock Text="{Binding MainDishes[0].Description}" TextWrapping="Wrap" FontSize="12"/>
                                 </StackPanel>
-                                <TextBlock Text="$20.00" Width="50" VerticalAlignment="Center"/>
+                                <TextBlock Text="{Binding MainDishes[0].Price, StringFormat=C}" Width="50" VerticalAlignment="Center"/>
                                 <Button Content="Edit" Width="60" Margin="5,0" Click="EditMain1_Click"/>
                                 <Button Content="Delete" Width="60" Margin="5,0" Click="DeleteMain1_Click"/>
                             </StackPanel>
 
-                            <!-- Dish 4 -->
+                            <!-- Main Dish 2 -->
                             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0,10">
                                 <StackPanel Width="600">
-                                    <TextBlock Text="Main Dish 2" FontWeight="Bold"/>
-                                    <TextBlock Text="Description of Main Dish 2" TextWrapping="Wrap" FontSize="12"/>
+                                    <TextBlock Text="{Binding MainDishes[1].Name}" FontWeight="Bold"/>
+                                    <TextBlock Text="{Binding MainDishes[1].Description}" TextWrapping="Wrap" FontSize="12"/>
                                 </StackPanel>
-                                <TextBlock Text="$25.00" Width="50" VerticalAlignment="Center"/>
+                                <TextBlock Text="{Binding MainDishes[1].Price, StringFormat=C}" Width="50" VerticalAlignment="Center"/>
                                 <Button Content="Edit" Width="60" Margin="5,0" Click="EditMain2_Click"/>
                                 <Button Content="Delete" Width="60" Margin="5,0" Click="DeleteMain2_Click"/>
                             </StackPanel>
@@ -93,24 +93,24 @@
                             <TextBlock Text="Desserts" FontSize="18" FontWeight="Bold"/>
                             <Separator/>
 
-                            <!-- Dish 5 -->
+                            <!-- Dessert 1 -->
                             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0,10">
                                 <StackPanel Width="600">
-                                    <TextBlock Text="Dessert 1" FontWeight="Bold"/>
-                                    <TextBlock Text="Description of Dessert 1" TextWrapping="Wrap" FontSize="12"/>
+                                    <TextBlock Text="{Binding Desserts[0].Name}" FontWeight="Bold"/>
+                                    <TextBlock Text="{Binding Desserts[0].Description}" TextWrapping="Wrap" FontSize="12"/>
                                 </StackPanel>
-                                <TextBlock Text="$8.00" Width="50" VerticalAlignment="Center"/>
+                                <TextBlock Text="{Binding Desserts[0].Price, StringFormat=C}" Width="50" VerticalAlignment="Center"/>
                                 <Button Content="Edit" Width="60" Margin="5,0" Click="EditDessert1_Click"/>
                                 <Button Content="Delete" Width="60" Margin="5,0" Click="DeleteDessert1_Click"/>
                             </StackPanel>
 
-                            <!-- Dish 6 -->
+                            <!-- Dessert 2 -->
                             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0,10">
                                 <StackPanel Width="600">
-                                    <TextBlock Text="Dessert 2" FontWeight="Bold"/>
-                                    <TextBlock Text="Description of Dessert 2" TextWrapping="Wrap" FontSize="12"/>
+                                    <TextBlock Text="{Binding Desserts[1].Name}" FontWeight="Bold"/>
+                                    <TextBlock Text="{Binding Desserts[1].Description}" TextWrapping="Wrap" FontSize="12"/>
                                 </StackPanel>
-                                <TextBlock Text="$10.00" Width="50" VerticalAlignment="Center"/>
+                                <TextBlock Text="{Binding Desserts[1].Price, StringFormat=C}" Width="50" VerticalAlignment="Center"/>
                                 <Button Content="Edit" Width="60" Margin="5,0" Click="EditDessert2_Click"/>
                                 <Button Content="Delete" Width="60" Margin="5,0" Click="DeleteDessert2_Click"/>
                             </StackPanel>
