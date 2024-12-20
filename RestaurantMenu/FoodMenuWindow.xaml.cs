@@ -87,26 +87,25 @@ namespace RestaurantMenu
             // Clear any existing content in the panel
             panel.Children.Clear();
 
-            // Create a new Grid for each panel
-            Grid itemGrid = new Grid();
-
             // Add a button for each menu item
             foreach (MenuItem item in menuItems)
             {
-                itemGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(2, GridUnitType.Star) });
+                // Create a Grid for each menu item
+                Grid itemGrid = new Grid();
+                itemGrid.Margin = new Thickness(10);
 
-                // Create a horizontal StackPanel to hold the TextBlock and Button
-                StackPanel itemPanel = new StackPanel
-                {
-                    Orientation = Orientation.Horizontal,
-                    Margin = new Thickness(5) // Add some spacing around the panel
-                };
+                // Define columns for the image, name/description, and button
+                itemGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+                itemGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(3, GridUnitType.Star) });
+                itemGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Auto) });
+
 
                 //// Create the TextBlock for the item name/description
                 TextBlock dishContent = new TextBlock
                 {
                     Text = item.ToString(),
-                    FontSize = 8,
+                    FontSize = 12,
+                    TextWrapping = TextWrapping.Wrap,
                     Margin = new Thickness(5, 0, 10, 0), // Add spacing between TextBlock and Button
                     Foreground = new SolidColorBrush(Colors.White)
                 };
@@ -115,8 +114,8 @@ namespace RestaurantMenu
                 Image imgDish = new Image
                 {
                     Source = new BitmapImage(new Uri(item.ImagePath, UriKind.RelativeOrAbsolute)),
-                    Height = 50,
-                    Width = 50,
+                    Height = 70,
+                    Width = 70,
                     Margin = new Thickness(5, 0, 10, 0),
                     
                 };
@@ -137,13 +136,19 @@ namespace RestaurantMenu
                 button.Click += AddToOrder_Click;
 
 
-                // Add the TextBlock and Button to the StackPanel
-                itemPanel.Children.Add(imgDish);
-                itemPanel.Children.Add(dishContent);
-                itemPanel.Children.Add(button);
+                // Add elements to the Grid
+                itemGrid.Children.Add(imgDish);
+                Grid.SetColumn(imgDish, 0);
+
+                itemGrid.Children.Add(dishContent);
+                Grid.SetColumn(dishContent, 1);
+
+                itemGrid.Children.Add(button);
+                Grid.SetColumn(button, 2);
+
 
                 // Add the StackPanel to the appropriate parent panel
-                panel.Children.Add(itemPanel);
+                panel.Children.Add(itemGrid);
             }
         }
 

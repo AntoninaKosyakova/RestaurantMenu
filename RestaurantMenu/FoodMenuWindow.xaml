@@ -53,61 +53,33 @@
             />
         </StackPanel>
 
-        <StackPanel  Grid.Row="3" Grid.Column="1" Grid.RowSpan="2">
-            
-            <GroupBox Header="Starters" FontSize="15" Foreground="#FFFFFF">
-                <!-- Add starters here -->
-               
-
-                    <StackPanel x:Name="StartersPanel" Orientation="Vertical" Margin="10"/>
-
-               
-
+        <StackPanel Grid.Row="3" Grid.Column="1" Grid.RowSpan="2">
+            <GroupBox Header="Starters" FontSize="20" Foreground="#FFFFFF">
+                <StackPanel x:Name="StartersPanel" Orientation="Vertical" Margin="10"/>
             </GroupBox>
-
         </StackPanel>
 
-
-        <StackPanel  Grid.Row="5" Grid.Column="1" Grid.RowSpan="2">
-
-            <GroupBox Header="MainDishes" FontSize="15" Foreground="#FFFFFF">
-                <!-- Add Main Dishes here -->
+        <StackPanel Grid.Row="5" Grid.Column="1" Grid.RowSpan="2">
+            <GroupBox Header="MainDishes" FontSize="20" Foreground="#FFFFFF">
                 <StackPanel x:Name="MainDishesPanel" Orientation="Vertical" Margin="10"/>
-                
             </GroupBox>
-
         </StackPanel>
 
-
-        <StackPanel  Grid.Row="7" Grid.Column="1" Grid.RowSpan="2">
-
-            <GroupBox Header="Desserts" FontSize="15" Foreground="#FFFFFF">
-                <!-- Add Desserts here -->
+        
+        <StackPanel Grid.Row="7" Grid.Column="1" Grid.RowSpan="2">
+            <GroupBox Header="Desserts" FontSize="20" Foreground="#FFFFFF">
                 <StackPanel x:Name="DessertsPanel" Orientation="Vertical" Margin="10"/>
-
             </GroupBox>
-
         </StackPanel>
 
-
-        <StackPanel  Grid.Row="3" Grid.Column="3" Grid.RowSpan="6" Margin="0,0,-180,0">
-
+        
+        <StackPanel Grid.Row="3" Grid.Column="3" Grid.RowSpan="6" Margin="0,0,-180,0">
             <GroupBox x:Name="YourOrderGroupBox" Header="Your Order" FontSize="15" Foreground="#FFFFFF" Height="768">
-                <!-- Order Review -->
-                
                 <StackPanel>
-                    <TextBlock x:Name="OrderSummary" 
-                               Text="No items in your order." 
-                               FontSize="12" Foreground="White" 
-                               Margin="5"/>
-                    <Button Content="Clear Order"
-                            Click="ClearOrderButton_Click"
-                            />
+                    <TextBlock x:Name="OrderSummary" Text="No items in your order." FontSize="12" Foreground="White" Margin="5"/>
+                    <Button Content="Clear Order" Click="ClearOrderButton_Click"/>
                 </StackPanel>
-                
             </GroupBox>
-
         </StackPanel>
-
     </Grid>
 </Window>

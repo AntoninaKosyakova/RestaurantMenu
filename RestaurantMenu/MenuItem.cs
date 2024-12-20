@@ -133,7 +133,7 @@ namespace RestaurantMenu
         /// <returns>A string describing the MenuItem.</returns>
         public override string ToString()
         {
-            return $"{Name,SPACE}{Price:C}\n{Description}";
+            return $"{Name,SPACE}{Price:C}\n\n{Description}";
         }
     }
 }
