@@ -115,18 +115,18 @@ namespace RestaurantMenu
                 throw new ArgumentNullException(nameof(item), "Item cannot be null.");
             }
 
-            MenuItem existingItem = FindExistingMenuItem(item, menu);
-            if (existingItem != null)
-            {
-                existingItem.Description = item.Description;
-                existingItem.Price = item.Price;
-                //existingItem.Category = item.Category;
-                existingItem.ImagePath = item.ImagePath;
-            }
-            else
-            {
-                throw new ArgumentException("Menu item not found.");
-            }
+            //MenuItem existingItem = FindExistingMenuItem(item, menu);
+            //if (existingItem != null)
+            //{
+            //    existingItem.Description = item.Description;
+            //    existingItem.Price = item.Price;
+            //    //existingItem.Category = item.Category;
+            //    existingItem.ImagePath = item.ImagePath;
+            //}
+            //else
+            //{
+            //    throw new ArgumentException("Menu item not found.");
+            //}
         }
 
 
@@ -167,25 +167,7 @@ namespace RestaurantMenu
             return list;
         }
 
-        public List<MenuItem> EditItem(MenuItem item, List<MenuItem> list)
-        {
-            
-            MenuItem newItemVersion = new MenuItem
-            (
-              EditNameTextBox.Text,
-              item.Description,
-              item.Price,
-              item.ImagePath
-
-           );
-
-            // reassign
-
-
-
-            return list;
-        }
-
+      
 
     }
 

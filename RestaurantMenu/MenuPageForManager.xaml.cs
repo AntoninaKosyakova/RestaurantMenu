@@ -35,8 +35,29 @@ namespace RestaurantMenu
             DataContext = this;
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            //open EditItem's window
+            EditItem editTheItem = new EditItem(Desserts);
+            editTheItem.Show();
+            this.Close();
+        }
 
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            //open EditItem's window
+            EditItem editTheItem = new EditItem(MainDishes);
+            editTheItem.Show();
+            this.Close();
+        }
 
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            //open EditItem's window
+            EditItem editTheItem = new EditItem(Starters);
+            editTheItem.Show();
+            this.Close();
+        }
     }
 }
 

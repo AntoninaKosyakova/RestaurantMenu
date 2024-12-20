@@ -33,7 +33,7 @@
                                         </StackPanel>
                                         <TextBlock Text="{Binding Price, StringFormat=C}" Width="50" VerticalAlignment="Center"/>
                                         <Button Content="delete" Width="60" Margin="5,0"/>
-                                        <Button Content="edit" Width="60" Margin="5,0"/>
+                                        <Button Content="edit" Width="60" Margin="5,0" Click="Button_Click_2"/>
                                         <Rectangle Width="50" Height="50" Fill="Gray" Margin="10,0,0,0"/>
                                     </StackPanel>
                                 </DataTemplate>
@@ -62,7 +62,7 @@
                                         </StackPanel>
                                         <TextBlock Text="{Binding Price, StringFormat=C}" Width="50" VerticalAlignment="Center"/>
                                         <Button Content="delete" Width="60" Margin="5,0"/>
-                                        <Button Content="edit" Width="60" Margin="5,0"/>
+                                        <Button Content="edit" Width="60" Margin="5,0" Click="Button_Click_1"/>
                                         <Rectangle Width="50" Height="50" Fill="Gray" Margin="10,0,0,0"/>
                                     </StackPanel>
                                 </DataTemplate>
@@ -91,7 +91,7 @@
                                         </StackPanel>
                                         <TextBlock Text="{Binding Price, StringFormat=C}" Width="50" VerticalAlignment="Center"/>
                                         <Button Content="delete" Width="60" Margin="5,0"/>
-                                        <Button Content="edit" Width="60" Margin="5,0"/>
+                                        <Button Content="edit" Width="60" Margin="5,0" Click="Button_Click"/>
                                         <Rectangle Width="50" Height="50" Fill="Gray" Margin="10,0,0,0"/>
                                     </StackPanel>
                                 </DataTemplate>
