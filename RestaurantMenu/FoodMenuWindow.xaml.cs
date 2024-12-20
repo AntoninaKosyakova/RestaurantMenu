@@ -135,7 +135,7 @@ namespace RestaurantMenu
             OrderSummary.Text = string.Empty;
             foreach (OrderItem item in currentOrder.OrderItems)
             {
-                OrderSummary.Text += $"{item}\n"; // Append each order item
+                OrderSummary.Text += item.ToString() + "\n"; // Using ToString() from orderItem
             }
             OrderSummary.Text += $"\nTotal: {currentOrder.TotalPrice:C}"; // Display the total price
         }

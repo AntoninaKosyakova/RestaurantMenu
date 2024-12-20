@@ -22,7 +22,7 @@ namespace RestaurantMenu
         {
             LoadMenuItems();
         }
-      
+
         /// <summary>
         /// Initializes a new instance of the Manager class with a username and password.
         /// </summary>

@@ -57,22 +57,21 @@ namespace RestaurantMenu
 
         private void EditName_TextChanged(object sender, TextChangedEventArgs e)
         {
-            // Optional: Add validation or live update logic here
+            
         }
 
         private void EditDescription_TextChanged(object sender, TextChangedEventArgs e)
         {
-            // Optional: Add validation or live update logic here
+            
         }
 
         private void EditPrice_TextChanged(object sender, TextChangedEventArgs e)
         {
-            // Optional: Add validation or live update logic here
+            
         }
 
         private void EditImagePath_TextChanged(object sender, TextChangedEventArgs e)
         {
-            // Optional: Add validation or live update logic here
         }
     }
 }

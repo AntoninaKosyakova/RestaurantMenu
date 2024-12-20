@@ -69,7 +69,13 @@ namespace RestaurantMenu
             }
         }
 
-       
+        // Override the ToString method to return the item details (name, quantity, price)
+        public override string ToString()
+        {
+            return $"{MenuItem.Name} x{Quantity} - {TotalCost:C}";
+        }
+
+
     }
 
 }
