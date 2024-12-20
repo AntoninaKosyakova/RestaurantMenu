@@ -85,24 +85,6 @@ namespace RestaurantMenu
             return null;
         }
 
-        /// <summary>
-        /// Removes an item from the order.
-        /// </summary>
-        /// <param name="item">The menu item to remove.</param>
-        public void RemoveItem(MenuItem item)
-        {
-            if (item == null)
-            {
-                MessageBox.Show("Item cannot be null...", "Invalid data", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-
-            OrderItem itemToRemove = FindExistingItem(item);
-            if (itemToRemove != null)
-            {
-                orderItems.Remove(itemToRemove);
-            }
-        }
 
         /// <summary>
         /// Clears all items from the order.
@@ -112,20 +94,7 @@ namespace RestaurantMenu
             orderItems.Clear();
         }
 
-        /// <summary>
-        /// Returns a string representation of the order, listing all items and the total price.
-        /// </summary>
-        /// <returns>A string describing the order.</returns>
-        public override string ToString()
-        {
-            string orderSummary = string.Empty;
-            foreach (OrderItem item in orderItems)
-            {
-                orderSummary += item.ToString() + "\n";
-            }
-            orderSummary += $"Total Price: {TotalPrice:C}";
-            return orderSummary;
-        }
+        
     }
 
 

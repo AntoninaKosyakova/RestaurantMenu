@@ -69,14 +69,7 @@ namespace RestaurantMenu
             }
         }
 
-        /// <summary>
-        /// Returns a string representation of the OrderItem.
-        /// </summary>
-        /// <returns>A string describing the OrderItem.</returns>
-        public override string ToString()
-        {
-            return $"{MenuItem.Name} x{Quantity} - {TotalCost:C}";
-        }
+       
     }
 
 }

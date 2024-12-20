@@ -130,17 +130,6 @@ namespace RestaurantMenu
             }
         }
 
-
-        private MenuItem FindMenuItem(MenuItem item, List<MenuItem> list)
-        {
-            foreach (MenuItem menuItem in list)
-            {
-                if (menuItem == item)
-                    return menuItem;
-            }
-            return null;
-        }
-
         public static List<MenuItem> GetListForItem(MenuItem item)
         {
             if (Starters.Contains(item)) return Starters;

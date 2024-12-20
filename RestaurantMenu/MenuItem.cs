@@ -13,17 +13,10 @@ namespace RestaurantMenu
         private string name;
         private string description;
         private double price;
-       // private CategoryEnum category;
         private string imagePath;
         private const int SPACE = -40;
 
-        // Enum for Category
-        public enum CategoryEnum
-        {
-            Starters,
-            MainDish,
-            Dessert
-        }
+        
 
         /// <summary>
         /// Initializes a new instance of the MenuItem class with the specified details.
@@ -37,7 +30,6 @@ namespace RestaurantMenu
             Name = name;
             Description = description;
             Price = price;
-           // Category = category;
             ImagePath = imagePath;
         }
 
@@ -93,22 +85,6 @@ namespace RestaurantMenu
                 price = value;
             }
         }
-
-        ///// <summary>
-        ///// Gets or sets the category of the food item.
-        ///// </summary>
-        //public CategoryEnum Category
-        //{
-        //    get { return category; }
-        //    set
-        //    {
-        //        if (!Enum.IsDefined(typeof(CategoryEnum), value))
-        //        {
-        //            throw new ArgumentOutOfRangeException(nameof(Category), "Invalid category.");
-        //        }
-        //        category = value;
-        //    }
-        //}
 
         /// <summary>
         /// Gets or sets the file path of the food item's image.
