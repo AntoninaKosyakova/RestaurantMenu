@@ -19,17 +19,17 @@ namespace RestaurantMenu
 
         public List<MenuItem> Starters
         {
-            get { return Manager.Starters; }
+            get { return MenuManager.Starters; }
         }
 
         public List<MenuItem> MainDishes
         {
-            get { return Manager.MainDishes; }
+            get { return MenuManager.MainDishes; }
         }
 
         public List<MenuItem> Desserts
         {
-            get { return Manager.Desserts; }
+            get { return MenuManager.Desserts; }
         }
 
         public ICommand EditCommand { get; }
@@ -45,7 +45,7 @@ namespace RestaurantMenu
         {
             if (parameter is MenuItem item)
             {
-                var list = Manager.GetListForItem(item);
+                var list = MenuManager.GetListForItem(item);
                 if (list != null)
                 {
                     EditItem editWindow = new EditItem(item, list)
@@ -62,7 +62,7 @@ namespace RestaurantMenu
         {
             if (parameter is MenuItem item)
             {
-                var list = Manager.GetListForItem(item);
+                var list = MenuManager.GetListForItem(item);
                 if (list != null)
                 {
                     list.Remove(item);
@@ -74,7 +74,7 @@ namespace RestaurantMenu
 
         private void AddStarter_Click(object sender, RoutedEventArgs e)
         {
-            AddItem addItemWindow = new AddItem(Manager.Starters);
+            AddItem addItemWindow = new AddItem(MenuManager.Starters);
             addItemWindow.Owner = this;
             addItemWindow.ShowDialog();
             RefreshUI();
@@ -82,7 +82,7 @@ namespace RestaurantMenu
 
         private void AddMainDish_Click(object sender, RoutedEventArgs e)
         {
-            AddItem addItemWindow = new AddItem(Manager.MainDishes);
+            AddItem addItemWindow = new AddItem(MenuManager.MainDishes);
             addItemWindow.Owner = this;
             addItemWindow.ShowDialog();
             RefreshUI();
@@ -90,7 +90,7 @@ namespace RestaurantMenu
 
         private void AddDessert_Click(object sender, RoutedEventArgs e)
         {
-            AddItem addItemWindow = new AddItem(Manager.Desserts);
+            AddItem addItemWindow = new AddItem(MenuManager.Desserts);
             addItemWindow.Owner = this;
             addItemWindow.ShowDialog();
             RefreshUI();
@@ -105,7 +105,7 @@ namespace RestaurantMenu
 
         private void DailySalesSummary_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show($"Total Sales Today: {Manager.DailySalesTotal:C}", "Daily Sales Summary", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show($"Total Sales Today: {MenuManager.DailySalesTotal:C}", "Daily Sales Summary", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void Orders_Click(object sender, RoutedEventArgs e)

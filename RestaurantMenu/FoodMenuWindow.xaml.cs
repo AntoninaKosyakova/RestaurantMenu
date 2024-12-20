@@ -32,9 +32,9 @@ namespace RestaurantMenu
         private void PopulateMenu()
         {
             // Populate the panels with Manager's lists
-            PopulatePanel(StartersPanel, Manager.Starters);
-            PopulatePanel(MainDishesPanel, Manager.MainDishes);
-            PopulatePanel(DessertsPanel, Manager.Desserts);
+            PopulatePanel(StartersPanel, MenuManager.Starters);
+            PopulatePanel(MainDishesPanel, MenuManager.MainDishes);
+            PopulatePanel(DessertsPanel, MenuManager.Desserts);
         }
 
         /// <summary>
@@ -160,7 +160,7 @@ namespace RestaurantMenu
             if (currentOrder.OrderItems.Any())
             {
                 // Add the current order to the manager's records
-                Manager.AddOrder(currentOrder);
+                MenuManager.AddOrder(currentOrder);
 
                 // Notify the user that the order was successfully placed
                 MessageBox.Show("Order placed successfully!", "Order Placed", MessageBoxButton.OK, MessageBoxImage.Information);
