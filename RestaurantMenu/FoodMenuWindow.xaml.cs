@@ -10,75 +10,34 @@ namespace RestaurantMenu
     /// </summary>
     public partial class FoodMenuWindow : Window
     {
-        // List of Menu Items for each category
-        private List<MenuItem> _starters;
-        private List<MenuItem> _mainDishes;
-        private List<MenuItem> _desserts;
-
         // List to keep track of items in the current order
         private List<MenuItem> order;
 
-
         /// <summary>
-        ///     Constructor for the FoodMenuWindow class.
-        ///     Initializes components and loads menu items.
+        /// Constructor for the FoodMenuWindow class.
+        /// Initializes components and loads menu items from the Manager class.
         /// </summary>
         public FoodMenuWindow()
         {
             InitializeComponent(); // Initializes the WPF components from XAML
-            order = new List<MenuItem>(); //// Initialize the order list
-           
-            // Initialize menu items
-            //_starters = Manager.Starters;
-            //_mainDishes = Manager.MainDishes;
-            //_desserts = Manager.Desserts;
-            LoadMenuItems();
+            order = new List<MenuItem>(); // Initialize the order list
 
             PopulateMenu();  // Populate UI dynamically
-
-        }
-
-
-
-        /// <summary>
-        ///      Load menu items into categories.
-        /// </summary>
-        private void LoadMenuItems()
-        {
-            _starters = new List<MenuItem>
-            {
-               new MenuItem("Bruschetta al Pomodoro", "Grilled bread topped with fresh tomatoes, garlic, olive oil, and basil.", 6.00, "/Images/bread.jpg"),
-               new MenuItem("Caprese Salad", "Fresh mozzarella, tomatoes, basil, drizzled with balsamic glaze.", 9.50, "/Images/Salad.jpg")
-            };
-
-            _mainDishes = new List<MenuItem>
-            {
-                 new MenuItem("Lasagna al Forno", "Layers of pasta, Bolognese sauce, béchamel, and parmesan cheese.", 10.00, "/Images/Lasagna.png"),
-                 new MenuItem("Risotto ai Funghi", "Creamy Arborio rice cooked with mushrooms, garlic, and parmesan.", 12.00, "/Images/MushroomRisotto.png")
-            };
-
-            _desserts = new List<MenuItem>
-            {
-                new MenuItem("Tiramisu", "Layers of espresso-soaked ladyfingers, mascarpone cream, and cocoa powder.", 4.50, "/Images/Tiramisu.png"),
-                new MenuItem("Panna Cotta", "Silky cooked cream dessert served with a berry coulis or caramel sauce.", 6.99, "/Images/PannaCotta.png")
-            };
         }
 
         /// <summary>
-        ///      Dynamically populate the menu sections.
+        /// Dynamically populate the menu sections using Manager's lists.
         /// </summary>
         private void PopulateMenu()
         {
-            // Populate the panels
-            PopulatePanel(StartersPanel, _starters);
-            PopulatePanel(MainDishesPanel, _mainDishes);
-            PopulatePanel(DessertsPanel, _desserts);
+            // Populate the panels with Manager's lists
+            PopulatePanel(StartersPanel, Manager.Starters);
+            PopulatePanel(MainDishesPanel, Manager.MainDishes);
+            PopulatePanel(DessertsPanel, Manager.Desserts);
         }
 
-
-
         /// <summary>
-        ///     Populates a specific panel with buttons for each menu item.
+        /// Populates a specific panel with buttons for each menu item.
         /// </summary>
         /// <param name="panel">The StackPanel to populate.</param>
         /// <param name="menuItems">The list of menu items to add to the panel.</param>
@@ -99,8 +58,16 @@ namespace RestaurantMenu
                 itemGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(3, GridUnitType.Star) });
                 itemGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Auto) });
 
+                // Create the Image for the dish
+                Image imgDish = new Image
+                {
+                    Source = new BitmapImage(new Uri(item.ImagePath, UriKind.RelativeOrAbsolute)),
+                    Height = 70,
+                    Width = 70,
+                    Margin = new Thickness(5, 0, 10, 0),
+                };
 
-                //// Create the TextBlock for the item name/description
+                // Create the TextBlock for the item name/description
                 TextBlock dishContent = new TextBlock
                 {
                     Text = item.ToString(),
@@ -110,31 +77,18 @@ namespace RestaurantMenu
                     Foreground = new SolidColorBrush(Colors.White)
                 };
 
-                // Create the Image for the dish
-                Image imgDish = new Image
-                {
-                    Source = new BitmapImage(new Uri(item.ImagePath, UriKind.RelativeOrAbsolute)),
-                    Height = 70,
-                    Width = 70,
-                    Margin = new Thickness(5, 0, 10, 0),
-                    
-                };
-
                 // Create a button for the menu item
                 Button button = new Button
                 {
                     Content = "add", // Button label
                     Tag = item, // Store the MenuItem object in the button's Tag property
-                    //Margin = new Thickness(5), // Add some spacing around the button
                     FontSize = 10,
                     Height = 20,
                     Width = 20
-
                 };
 
                 // Attach a click event handler to the button
                 button.Click += AddToOrder_Click;
-
 
                 // Add elements to the Grid
                 itemGrid.Children.Add(imgDish);
@@ -146,14 +100,13 @@ namespace RestaurantMenu
                 itemGrid.Children.Add(button);
                 Grid.SetColumn(button, 2);
 
-
                 // Add the StackPanel to the appropriate parent panel
                 panel.Children.Add(itemGrid);
             }
         }
 
         /// <summary>
-        ///     Handles the click event for menu item buttons, adding the item to the order.
+        /// Handles the click event for menu item buttons, adding the item to the order.
         /// </summary>
         private void AddToOrder_Click(object sender, RoutedEventArgs e)
         {
@@ -167,10 +120,8 @@ namespace RestaurantMenu
             }
         }
 
-
-
         /// <summary>
-        ///     Updates the "Your Order" section with the current list of ordered items.
+        /// Updates the "Your Order" section with the current list of ordered items.
         /// </summary>
         private void UpdateOrderSummary()
         {
@@ -207,7 +158,5 @@ namespace RestaurantMenu
             // Update the order summary display
             UpdateOrderSummary();
         }
-
-
     }
 }
