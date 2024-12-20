@@ -1,85 +1,88 @@
 ﻿<Window x:Class="RestaurantMenu.FoodMenuWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:RestaurantMenu"
-        mc:Ignorable="d"
-        Title="FoodMenuWindow" Height="900" Width="800" 
-        FontFamily = "Times New Roman"
+        Title="FoodMenuWindow" Height="900" Width="800"
+        FontFamily="Times New Roman"
         Background="#4B2C2C">
-    <Grid Margin="15,30,15,30">
+    <Grid Margin="15">
 
         <Grid.RowDefinitions>
-
-            <RowDefinition Height="70"/>
-            <RowDefinition Height="25"/>
-            <RowDefinition Height="10"/>
-            <RowDefinition Height="35"/>
-            <RowDefinition Height="220"/>
-            <RowDefinition Height="35"/>
-            <RowDefinition Height="220"/>
-            <RowDefinition Height="35"/>
-            <RowDefinition Height="220"/>
-
-
+            <RowDefinition Height="Auto"/>
+            <!-- Title -->
+            <RowDefinition Height="Auto"/>
+            <!-- Subtitle -->
+            <RowDefinition Height="*"/>
+            <!-- Content -->
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-
-            <ColumnDefinition Width="90"/>
-            <ColumnDefinition Width="420"/>
-            <ColumnDefinition Width="30"/>
-            <ColumnDefinition Width="50"/>
-
+            <ColumnDefinition Width="3*"/>
+            <!-- Menu Items -->
+            <ColumnDefinition Width="1*"/>
+            <!-- Your Order -->
         </Grid.ColumnDefinitions>
 
-        <StackPanel  Grid.Column="0" Grid.ColumnSpan="4" Margin="0,15,-170,0">
-                        
-                <TextBlock Text="FOOD MENU" 
-                           FontSize="30" FontWeight="Bold" 
-                           Foreground="#FFFFFF"
-                           HorizontalAlignment="Center" VerticalAlignment="Center" 
-                />
-            
-        </StackPanel>
+        <!-- Title -->
+        <TextBlock Text="FOOD MENU"
+                   Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+                   FontSize="30" FontWeight="Bold"
+                   Foreground="White"
+                   HorizontalAlignment="Center" VerticalAlignment="Center" />
 
-        <StackPanel  Grid.Row="1" Grid.ColumnSpan="4" Margin="0,0,-170,12" Grid.RowSpan="2">
-           
-                <TextBlock Text="(C) Sharp Minds" 
-               FontSize="15" 
-               Foreground="#FFFFFF"
-               HorizontalAlignment="Center" VerticalAlignment="Center" 
-            />
-        </StackPanel>
+        <!-- Subtitle -->
+        <TextBlock Text="(C) Sharp Minds"
+                   Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                   FontSize="15"
+                   Foreground="White"
+                   HorizontalAlignment="Center" VerticalAlignment="Center" />
 
-        <StackPanel Grid.Row="3" Grid.Column="1" Grid.RowSpan="2">
-            <GroupBox Header="Starters" FontSize="20" Foreground="#FFFFFF">
-                <StackPanel x:Name="StartersPanel" Orientation="Vertical" Margin="10"/>
-            </GroupBox>
-        </StackPanel>
+        <!-- Menu Items Section -->
+        <ScrollViewer Grid.Row="2" Grid.Column="0" VerticalScrollBarVisibility="Auto">
+            <StackPanel Margin="10" Orientation="Vertical">
 
-        <StackPanel Grid.Row="5" Grid.Column="1" Grid.RowSpan="2">
-            <GroupBox Header="MainDishes" FontSize="20" Foreground="#FFFFFF">
-                <StackPanel x:Name="MainDishesPanel" Orientation="Vertical" Margin="10"/>
-            </GroupBox>
-        </StackPanel>
+                <!-- Starters -->
+                <GroupBox Header="Starters" FontSize="20" Foreground="White" Margin="0,10">
+                    <StackPanel x:Name="StartersPanel" Orientation="Vertical" Margin="10"/>
+                </GroupBox>
 
-        
-        <StackPanel Grid.Row="7" Grid.Column="1" Grid.RowSpan="2">
-            <GroupBox Header="Desserts" FontSize="20" Foreground="#FFFFFF">
-                <StackPanel x:Name="DessertsPanel" Orientation="Vertical" Margin="10"/>
-            </GroupBox>
-        </StackPanel>
+                <!-- Main Dishes -->
+                <GroupBox Header="Main Dishes" FontSize="20" Foreground="White" Margin="0,10">
+                    <StackPanel x:Name="MainDishesPanel" Orientation="Vertical" Margin="10"/>
+                </GroupBox>
 
-        
-        <StackPanel Grid.Row="3" Grid.Column="3" Grid.RowSpan="6" Margin="0,0,-180,0">
-            <GroupBox x:Name="YourOrderGroupBox" Header="Your Order" FontSize="15" Foreground="#FFFFFF" Height="768">
-                <StackPanel>
-                    <TextBlock x:Name="OrderSummary" Text="No items in your order." FontSize="12" Foreground="White" Margin="5"/>
-                    <Button Content="Clear Order" Click="ClearOrderButton_Click"/>
-                </StackPanel>
-            </GroupBox>
-        </StackPanel>
+                <!-- Desserts -->
+                <GroupBox Header="Desserts" FontSize="20" Foreground="White" Margin="0,10">
+                    <StackPanel x:Name="DessertsPanel" Orientation="Vertical" Margin="10"/>
+                </GroupBox>
+
+            </StackPanel>
+        </ScrollViewer>
+
+        <!-- Your Order Section -->
+        <GroupBox Header="Your Order" Grid.Row="2" Grid.Column="1"
+                  FontSize="15" Foreground="White" Margin="10">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <!-- Order Summary -->
+                    <RowDefinition Height="Auto"/>
+                    <!-- Clear Order Button -->
+                </Grid.RowDefinitions>
+
+                <!-- Order Summary -->
+                <ScrollViewer Grid.Row="0" VerticalScrollBarVisibility="Auto">
+                    <TextBlock x:Name="OrderSummary"
+                               Text="No items in your order."
+                               FontSize="12" Foreground="White" Margin="5"
+                               TextWrapping="Wrap"/>
+                </ScrollViewer>
+
+                <!-- Clear Order Button -->
+                <Button Content="Clear Order"
+                        Grid.Row="1"
+                        HorizontalAlignment="Center" Margin="5"
+                        Click="ClearOrderButton_Click"/>
+            </Grid>
+        </GroupBox>
     </Grid>
 </Window>
