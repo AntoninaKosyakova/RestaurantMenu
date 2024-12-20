@@ -131,19 +131,6 @@ namespace RestaurantMenu
         }
 
 
-
-        public List<MenuItem> AddItem(MenuItem newItem, List<MenuItem> list)
-        {
-            if (list.Count >= 2 || newItem == null)
-            {
-                MessageBox.Show("List capacity cannot add if there is already 2 dishes...", "Invalid data", MessageBoxButton.OK, MessageBoxImage.Error);
-                return null;
-            }
-
-            list.Add(newItem);
-            return list;
-        }
-
         private MenuItem FindMenuItem(MenuItem item, List<MenuItem> list)
         {
             foreach (MenuItem menuItem in list)
@@ -152,21 +139,6 @@ namespace RestaurantMenu
                     return menuItem;
             }
             return null;
-        }
-
-        public List<MenuItem> RemoveItem(MenuItem item, List<MenuItem> list)
-        {
-            if (item == null)
-            {
-                MessageBox.Show("Item cannot be null...", "Invalid data", MessageBoxButton.OK, MessageBoxImage.Error);
-                return null;
-            }
-
-            MenuItem itemToRemove = FindMenuItem(item, list);
-            if (itemToRemove != null)
-                list.Remove(itemToRemove);
-
-            return list;
         }
 
         public static List<MenuItem> GetListForItem(MenuItem item)
