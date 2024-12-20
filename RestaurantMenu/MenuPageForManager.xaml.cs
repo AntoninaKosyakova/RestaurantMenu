@@ -105,7 +105,10 @@ namespace RestaurantMenu
         // Logic for orders button click
         private void Orders_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Orders clicked!", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+            // Open the OrdersWindow to view all placed orders
+            OrdersWindow ordersWindow = new OrdersWindow();
+            ordersWindow.ShowDialog();
         }
+
     }
 }

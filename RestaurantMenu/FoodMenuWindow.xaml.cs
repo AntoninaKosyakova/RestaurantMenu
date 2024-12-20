@@ -154,18 +154,26 @@ namespace RestaurantMenu
         /// </summary>
         private void PlaceOrderButton_Click(object sender, RoutedEventArgs e)
         {
-            if (currentOrder.OrderItems.Count == 0)
+            // Check if the current order has any items
+            if (currentOrder.OrderItems.Any())
             {
-                MessageBox.Show("Your order is empty.", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
+                // Add the current order to the manager's records
+                Manager.AddOrder(currentOrder);
+
+                // Notify the user that the order was successfully placed
+                MessageBox.Show("Order placed successfully!", "Order Placed", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                // Clear the current order for a new one
+                currentOrder.ClearOrder();
+
+                // Update the order summary
+                UpdateOrderSummary();
             }
-
-            // Save or process the order
-            MessageBox.Show($"Order placed successfully!\n\n{currentOrder}", "Order Placed", MessageBoxButton.OK, MessageBoxImage.Information);
-
-            // Clear the order
-            currentOrder.ClearOrder();
-            UpdateOrderSummary();
+            else
+            {
+                // Notify the user if they attempt to place an empty order
+                MessageBox.Show("No items in the order!", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
 
         /// <summary>
