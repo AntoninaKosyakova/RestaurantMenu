@@ -22,12 +22,14 @@ namespace RestaurantMenu
     /// </summary>
     public partial class EditItem : Window
     {
+        private MenuItem _item;
         private List<MenuItem> _list;
 
 
-        public EditItem(List<MenuItem> list)
+        public EditItem(MenuItem item, List<MenuItem> list)
         {
             InitializeComponent();
+            _item = item;
             _list = list;
         }
 
@@ -71,7 +73,12 @@ namespace RestaurantMenu
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            EditItemMethod( _item, _list);
 
+            //open manager's window
+            MenuPage menuPageForManager = new MenuPage();
+            menuPageForManager.Show();
+            this.Close();
         }
 
         private void EditName_TextChanged(object sender, TextChangedEventArgs e)

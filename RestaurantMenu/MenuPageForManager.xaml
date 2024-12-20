@@ -2,129 +2,128 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Food Menu" Height="800" Width="1000">
-    <ScrollViewer VerticalScrollBarVisibility="Auto">
-        <Grid Margin="20">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
 
-            <!-- Title -->
-            <TextBlock Text="FOOD MENU" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center"/>
+        <!-- Main Content -->
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="0">
+            <Grid Margin="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
 
-            <!-- Starters Section -->
-            <StackPanel Grid.Row="1" Margin="0,20,0,0">
-                <Border BorderThickness="1" BorderBrush="Black">
-                    <StackPanel Margin="10">
-                        <TextBlock Text="Starters" FontSize="18" FontWeight="Bold"/>
-                        <Separator/>
+                <!-- Title -->
+                <TextBlock Text="FOOD MENU" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center"/>
 
-                        <!-- Data Binding for Starters -->
-                        <ItemsControl ItemsSource="{Binding Starters}">
-                            <ItemsControl.ItemsPanel>
-                                <ItemsPanelTemplate>
-                                    <StackPanel/>
-                                </ItemsPanelTemplate>
-                            </ItemsControl.ItemsPanel>
-                            <ItemsControl.ItemTemplate>
-                                <DataTemplate>
-                                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0,10">
-                                        <StackPanel Width="600">
-                                            <TextBlock Text="{Binding Name}" FontWeight="Bold"/>
-                                            <TextBlock Text="{Binding Description}" TextWrapping="Wrap" FontSize="12"/>
-                                        </StackPanel>
-                                        <TextBlock Text="{Binding Price, StringFormat=C}" Width="50" VerticalAlignment="Center"/>
-                                        <Button Content="Edit" Width="60" Margin="5,0"/>
-                                        <Button Content="Delete" Width="60" Margin="5,0"/>
-                                    </StackPanel>
-                                </DataTemplate>
-                            </ItemsControl.ItemTemplate>
-                            <ItemsControl.MaxHeight>100</ItemsControl.MaxHeight>
-                            <!-- Restrict display to 2 items -->
-                        </ItemsControl>
-                    </StackPanel>
-                </Border>
-                <Button Content="Add Dish" HorizontalAlignment="Right" Width="80" Margin="0,5,0,0"/>
-            </StackPanel>
+                <!-- Starters Section -->
+                <StackPanel Grid.Row="1" Margin="0,20,0,0">
+                    <Border BorderThickness="1" BorderBrush="Black">
+                        <StackPanel Margin="10">
+                            <TextBlock Text="Starters" FontSize="18" FontWeight="Bold"/>
+                            <Separator/>
 
-            <!-- Main Dishes Section -->
-            <StackPanel Grid.Row="2" Margin="0,20,0,0">
-                <Border BorderThickness="1" BorderBrush="Black">
-                    <StackPanel Margin="10">
-                        <TextBlock Text="Main Dishes" FontSize="18" FontWeight="Bold"/>
-                        <Separator/>
+                            <!-- Dish 1 -->
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0,10">
+                                <StackPanel Width="600">
+                                    <TextBlock Text="Starter 1" FontWeight="Bold"/>
+                                    <TextBlock Text="Description of Starter 1" TextWrapping="Wrap" FontSize="12"/>
+                                </StackPanel>
+                                <TextBlock Text="$10.00" Width="50" VerticalAlignment="Center"/>
+                                <Button Content="Edit" Width="60" Margin="5,0" Click="EditStarter1_Click"/>
+                                <Button Content="Delete" Width="60" Margin="5,0" Click="DeleteStarter1_Click"/>
+                            </StackPanel>
 
-                        <!-- Data Binding for Main Dishes -->
-                        <ItemsControl ItemsSource="{Binding MainDishes}">
-                            <ItemsControl.ItemsPanel>
-                                <ItemsPanelTemplate>
-                                    <StackPanel/>
-                                </ItemsPanelTemplate>
-                            </ItemsControl.ItemsPanel>
-                            <ItemsControl.ItemTemplate>
-                                <DataTemplate>
-                                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0,10">
-                                        <StackPanel Width="600">
-                                            <TextBlock Text="{Binding Name}" FontWeight="Bold"/>
-                                            <TextBlock Text="{Binding Description}" TextWrapping="Wrap" FontSize="12"/>
-                                        </StackPanel>
-                                        <TextBlock Text="{Binding Price, StringFormat=C}" Width="50" VerticalAlignment="Center"/>
-                                        <Button Content="Edit" Width="60" Margin="5,0"/>
-                                        <Button Content="Delete" Width="60" Margin="5,0"/>
-                                    </StackPanel>
-                                </DataTemplate>
-                            </ItemsControl.ItemTemplate>
-                            <ItemsControl.MaxHeight>100</ItemsControl.MaxHeight>
-                            <!-- Restrict display to 2 items -->
-                        </ItemsControl>
-                    </StackPanel>
-                </Border>
-                <Button Content="Add Dish" HorizontalAlignment="Right" Width="80" Margin="0,5,0,0"/>
-            </StackPanel>
+                            <!-- Dish 2 -->
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0,10">
+                                <StackPanel Width="600">
+                                    <TextBlock Text="Starter 2" FontWeight="Bold"/>
+                                    <TextBlock Text="Description of Starter 2" TextWrapping="Wrap" FontSize="12"/>
+                                </StackPanel>
+                                <TextBlock Text="$12.00" Width="50" VerticalAlignment="Center"/>
+                                <Button Content="Edit" Width="60" Margin="5,0" Click="EditStarter2_Click"/>
+                                <Button Content="Delete" Width="60" Margin="5,0" Click="DeleteStarter2_Click"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
 
-            <!-- Desserts Section -->
-            <StackPanel Grid.Row="3" Margin="0,20,0,0">
-                <Border BorderThickness="1" BorderBrush="Black">
-                    <StackPanel Margin="10">
-                        <TextBlock Text="Desserts" FontSize="18" FontWeight="Bold"/>
-                        <Separator/>
+                <!-- Main Dishes Section -->
+                <StackPanel Grid.Row="2" Margin="0,20,0,0">
+                    <Border BorderThickness="1" BorderBrush="Black">
+                        <StackPanel Margin="10">
+                            <TextBlock Text="Main Dishes" FontSize="18" FontWeight="Bold"/>
+                            <Separator/>
 
-                        <!-- Data Binding for Desserts -->
-                        <ItemsControl ItemsSource="{Binding Desserts}">
-                            <ItemsControl.ItemsPanel>
-                                <ItemsPanelTemplate>
-                                    <StackPanel/>
-                                </ItemsPanelTemplate>
-                            </ItemsControl.ItemsPanel>
-                            <ItemsControl.ItemTemplate>
-                                <DataTemplate>
-                                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0,10">
-                                        <StackPanel Width="600">
-                                            <TextBlock Text="{Binding Name}" FontWeight="Bold"/>
-                                            <TextBlock Text="{Binding Description}" TextWrapping="Wrap" FontSize="12"/>
-                                        </StackPanel>
-                                        <TextBlock Text="{Binding Price, StringFormat=C}" Width="50" VerticalAlignment="Center"/>
-                                        <Button Content="Edit" Width="60" Margin="5,0"/>
-                                        <Button Content="Delete" Width="60" Margin="5,0"/>
-                                    </StackPanel>
-                                </DataTemplate>
-                            </ItemsControl.ItemTemplate>
-                            <ItemsControl.MaxHeight>100</ItemsControl.MaxHeight>
-                            <!-- Restrict display to 2 items -->
-                        </ItemsControl>
-                    </StackPanel>
-                </Border>
-                <Button Content="Add Dish" HorizontalAlignment="Right" Width="80" Margin="0,5,0,0"/>
-            </StackPanel>
+                            <!-- Dish 3 -->
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0,10">
+                                <StackPanel Width="600">
+                                    <TextBlock Text="Main Dish 1" FontWeight="Bold"/>
+                                    <TextBlock Text="Description of Main Dish 1" TextWrapping="Wrap" FontSize="12"/>
+                                </StackPanel>
+                                <TextBlock Text="$20.00" Width="50" VerticalAlignment="Center"/>
+                                <Button Content="Edit" Width="60" Margin="5,0" Click="EditMain1_Click"/>
+                                <Button Content="Delete" Width="60" Margin="5,0" Click="DeleteMain1_Click"/>
+                            </StackPanel>
 
-            <!-- Footer Navigation -->
-            <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20">
-                <Button Content="Daily Sales Summary" Width="150" Margin="10"/>
-                <Button Content="Orders" Width="100" Margin="10"/>
-            </StackPanel>
-        </Grid>
-    </ScrollViewer>
+                            <!-- Dish 4 -->
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0,10">
+                                <StackPanel Width="600">
+                                    <TextBlock Text="Main Dish 2" FontWeight="Bold"/>
+                                    <TextBlock Text="Description of Main Dish 2" TextWrapping="Wrap" FontSize="12"/>
+                                </StackPanel>
+                                <TextBlock Text="$25.00" Width="50" VerticalAlignment="Center"/>
+                                <Button Content="Edit" Width="60" Margin="5,0" Click="EditMain2_Click"/>
+                                <Button Content="Delete" Width="60" Margin="5,0" Click="DeleteMain2_Click"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+
+                <!-- Desserts Section -->
+                <StackPanel Grid.Row="3" Margin="0,20,0,0">
+                    <Border BorderThickness="1" BorderBrush="Black">
+                        <StackPanel Margin="10">
+                            <TextBlock Text="Desserts" FontSize="18" FontWeight="Bold"/>
+                            <Separator/>
+
+                            <!-- Dish 5 -->
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0,10">
+                                <StackPanel Width="600">
+                                    <TextBlock Text="Dessert 1" FontWeight="Bold"/>
+                                    <TextBlock Text="Description of Dessert 1" TextWrapping="Wrap" FontSize="12"/>
+                                </StackPanel>
+                                <TextBlock Text="$8.00" Width="50" VerticalAlignment="Center"/>
+                                <Button Content="Edit" Width="60" Margin="5,0" Click="EditDessert1_Click"/>
+                                <Button Content="Delete" Width="60" Margin="5,0" Click="DeleteDessert1_Click"/>
+                            </StackPanel>
+
+                            <!-- Dish 6 -->
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0,10">
+                                <StackPanel Width="600">
+                                    <TextBlock Text="Dessert 2" FontWeight="Bold"/>
+                                    <TextBlock Text="Description of Dessert 2" TextWrapping="Wrap" FontSize="12"/>
+                                </StackPanel>
+                                <TextBlock Text="$10.00" Width="50" VerticalAlignment="Center"/>
+                                <Button Content="Edit" Width="60" Margin="5,0" Click="EditDessert2_Click"/>
+                                <Button Content="Delete" Width="60" Margin="5,0" Click="DeleteDessert2_Click"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+
+        <!-- Footer Navigation -->
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20">
+            <Button Content="Daily Sales Summary" Width="150" Margin="10" Click="DailySalesSummary_Click"/>
+            <Button Content="Orders" Width="100" Margin="10" Click="Orders_Click"/>
+        </StackPanel>
+    </Grid>
 </Window>

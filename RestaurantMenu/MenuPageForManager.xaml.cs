@@ -35,28 +35,93 @@ namespace RestaurantMenu
             DataContext = this;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void EditStarter1_Click(object sender, RoutedEventArgs e)
         {
             //open EditItem's window
-            EditItem editTheItem = new EditItem(Desserts);
+            EditItem editTheItem = new EditItem(Starters[0], Starters);
+            editTheItem.Show();
+            this.Close();
+        }
+        private void EditStarter2_Click(object sender, RoutedEventArgs e)
+        {
+            //open EditItem's window
+            EditItem editTheItem = new EditItem(Starters[1], Starters);
             editTheItem.Show();
             this.Close();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void EditMain1_Click(object sender, RoutedEventArgs e)
         {
             //open EditItem's window
-            EditItem editTheItem = new EditItem(MainDishes);
+            EditItem editTheItem = new EditItem(MainDishes[0], MainDishes);
             editTheItem.Show();
             this.Close();
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void EditMain2_Click(object sender, RoutedEventArgs e)
         {
             //open EditItem's window
-            EditItem editTheItem = new EditItem(Starters);
+            EditItem editTheItem = new EditItem(MainDishes[1], MainDishes);
             editTheItem.Show();
             this.Close();
         }
+
+        private void EditDessert1_Click(object sender, RoutedEventArgs e)
+        {
+            //open EditItem's window
+            EditItem editTheItem = new EditItem(Desserts[0], Desserts);
+            editTheItem.Show();
+            this.Close();
+        }
+
+        private void EditDessert2_Click(object sender, RoutedEventArgs e)
+        {
+            //open EditItem's window
+            EditItem editTheItem = new EditItem(Desserts[1], Desserts);
+            editTheItem.Show();
+            this.Close();
+        }
+
+        private void DeleteStarter1_Click(object sender, RoutedEventArgs e)
+        {
+           
+           
+        }
+
+        private void DeleteStarter2_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DeleteMain1_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DeleteMain2_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DeleteDessert1_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void DeleteDessert2_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Orders_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DailySalesSummary_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+
     }
 }
