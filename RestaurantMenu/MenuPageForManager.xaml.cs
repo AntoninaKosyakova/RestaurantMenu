@@ -93,8 +93,14 @@ namespace RestaurantMenu
         // Logic for daily sales summary button click
         private void DailySalesSummary_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Daily Sales Summary clicked!", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+            // Display a message box showing the total sales for the session
+            MessageBox.Show($"Total Sales Today: {Manager.DailySalesTotal:C}",
+                            "Daily Sales Summary",
+                            MessageBoxButton.OK,
+                            MessageBoxImage.Information
+            );
         }
+
 
         // Logic for orders button click
         private void Orders_Click(object sender, RoutedEventArgs e)

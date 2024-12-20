@@ -1,5 +1,4 @@
 ﻿using System.Windows;
-using System.Xml.Linq;
 
 namespace RestaurantMenu
 {
@@ -14,11 +13,44 @@ namespace RestaurantMenu
         private static List<MenuItem> _mainDishes;
         private static List<MenuItem> _desserts;
 
+        // Tracks total sales for the day
+        private static double _dailySalesTotal = 0;  // Initial value of 0
+        private static List<Order> _placedOrders = new List<Order>(); // List of all placed orders
+
         // Static constructor to ensure menu items are loaded
         static Manager()
         {
             LoadMenuItems();
         }
+      
+        /// <summary>
+        /// Initializes a new instance of the Manager class with a username and password.
+        /// </summary>
+        /// <param name="username">The manager's login username.</param>
+        /// <param name="password">The manager's login password.</param>
+        public Manager(string username, string password)
+        {
+            Username = username;
+            Password = password;
+        }
+
+        #region readOnly Prop
+        /// <summary>
+        ///     Gets the total sales for the session.
+        /// </summary>
+        public static double DailySalesTotal
+        {
+            get { return _dailySalesTotal; }
+        }
+
+        /// <summary>
+        ///     Gets the list of all placed orders.
+        /// </summary>
+        public static List<Order> PlacedOrders
+        {
+            get { return _placedOrders; }
+        }
+        #endregion
 
         public static List<MenuItem> Starters
         {
@@ -44,35 +76,25 @@ namespace RestaurantMenu
         private static void LoadMenuItems()
         {
             Starters = new List<MenuItem>
-        {
-            new MenuItem("Bruschetta al Pomodoro", "Grilled bread topped with fresh tomatoes, garlic, olive oil, and basil.", 6.00, "/Images/bread.jpg"),
-            new MenuItem("Caprese Salad", "Fresh mozzarella, tomatoes, basil, drizzled with balsamic glaze.", 9.50, "/Images/Salad.jpg")
-        };
+            {
+                new MenuItem("Bruschetta al Pomodoro", "Grilled bread topped with fresh tomatoes, garlic, olive oil, and basil.", 6.00, "/Images/bread.jpg"),
+                new MenuItem("Caprese Salad", "Fresh mozzarella, tomatoes, basil, drizzled with balsamic glaze.", 9.50, "/Images/Salad.jpg")
+            };
 
             MainDishes = new List<MenuItem>
-        {
-            new MenuItem("Lasagna al Forno", "Layers of pasta, Bolognese sauce, béchamel, and parmesan cheese.", 10.00, "/Images/Lasagna.png"),
-            new MenuItem("Risotto ai Funghi", "Creamy Arborio rice cooked with mushrooms, garlic, and parmesan.", 12.00, "/Images/MushroomRisotto.png")
-        };
+            {
+                new MenuItem("Lasagna al Forno", "Layers of pasta, Bolognese sauce, béchamel, and parmesan cheese.", 10.00, "/Images/Lasagna.png"),
+                new MenuItem("Risotto ai Funghi", "Creamy Arborio rice cooked with mushrooms, garlic, and parmesan.", 12.00, "/Images/MushroomRisotto.png")
+            };
 
             Desserts = new List<MenuItem>
-        {
-            new MenuItem("Tiramisu", "Layers of espresso-soaked ladyfingers, mascarpone cream, and cocoa powder.", 4.50, "/Images/Tiramisu.png"),
-            new MenuItem("Panna Cotta", "Silky cooked cream dessert served with a berry coulis or caramel sauce.", 6.99, "/Images/PannaCotta.png")
-        };
+            {
+                new MenuItem("Tiramisu", "Layers of espresso-soaked ladyfingers, mascarpone cream, and cocoa powder.", 4.50, "/Images/Tiramisu.png"),
+                new MenuItem("Panna Cotta", "Silky cooked cream dessert served with a berry coulis or caramel sauce.", 6.99, "/Images/PannaCotta.png")
+            };
         }
 
 
-        /// <summary>
-        /// Initializes a new instance of the Manager class with a username and password.
-        /// </summary>
-        /// <param name="username">The manager's login username.</param>
-        /// <param name="password">The manager's login password.</param>
-        public Manager(string username, string password)
-        {
-            Username = username;
-            Password = password;
-        }
 
 
         /// <summary>
@@ -153,6 +175,19 @@ namespace RestaurantMenu
             if (MainDishes.Contains(item)) return MainDishes;
             if (Desserts.Contains(item)) return Desserts;
             return null;
+        }
+
+        /// <summary>
+        ///     Adds a completed order to the records and updates the total sales.
+        /// </summary>
+        /// <param name="order">The completed order to add.</param>
+        public static void AddOrder(Order order)
+        {
+            if (order != null)
+            {
+                _placedOrders.Add(order); // Add the order to the list
+                _dailySalesTotal += order.TotalPrice; // Add the total price to the daily sales total
+            }
         }
 
     }
