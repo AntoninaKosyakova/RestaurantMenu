@@ -10,8 +10,8 @@ namespace RestaurantMenu
     /// </summary>
     public partial class FoodMenuWindow : Window
     {
-        // List to keep track of items in the current order
-        private List<MenuItem> order;
+        // Stores the current order being placed
+        private Order currentOrder;
 
         /// <summary>
         /// Constructor for the FoodMenuWindow class.
@@ -20,8 +20,7 @@ namespace RestaurantMenu
         public FoodMenuWindow()
         {
             InitializeComponent(); // Initializes the WPF components from XAML
-            order = new List<MenuItem>(); // Initialize the order list
-
+            currentOrder = new Order(); // Creates a new Order object to manage the current order
             PopulateMenu();  // Populate UI dynamically
         }
 
@@ -106,57 +105,78 @@ namespace RestaurantMenu
         }
 
         /// <summary>
-        /// Handles the click event for menu item buttons, adding the item to the order.
+        ///     Handles the "Add" button click event to add a menu item to the order.
         /// </summary>
         private void AddToOrder_Click(object sender, RoutedEventArgs e)
         {
             if (sender is Button button && button.Tag is MenuItem menuItem)
             {
-                // Add the selected menu item to the order
-                order.Add(menuItem);
+                // Add the selected menu item to the current order with a quantity of 1
+                currentOrder.AddItem(menuItem, 1);
 
-                // Update the order summary display
+                // Refresh the order summary display to show the updated order
                 UpdateOrderSummary();
             }
         }
 
         /// <summary>
-        /// Updates the "Your Order" section with the current list of ordered items.
+        ///     Updates the "Your Order" section with the current list of items in the order.
         /// </summary>
         private void UpdateOrderSummary()
         {
-            if (order.Count == 0)
+            if (currentOrder.OrderItems.Count == 0)
             {
-                // If the order is empty, display a placeholder message
+                // Display a placeholder message if the order is empty
                 OrderSummary.Text = "No items in your order.";
                 return;
             }
 
-            // Clear the current order summary
+            // Build the order summary text
             OrderSummary.Text = string.Empty;
-            double total = 0;
-
-            // Add each item in the order to the summary
-            foreach (MenuItem item in order)
+            foreach (OrderItem item in currentOrder.OrderItems)
             {
-                OrderSummary.Text += $"{item.Name} - ${item.Price:F2}\n";
-                total += item.Price;
+                OrderSummary.Text += $"{item}\n"; // Append each order item
             }
-
-            // Add the total cost to the summary
-            OrderSummary.Text += $"\nTotal: ${total:F2}";
+            OrderSummary.Text += $"\nTotal: {currentOrder.TotalPrice:C}"; // Display the total price
         }
 
         /// <summary>
-        /// Clears the current order and resets the "Your Order" section.
+        ///     Clears the current order and resets the "Your Order" section.
         /// </summary>
         private void ClearOrderButton_Click(object sender, RoutedEventArgs e)
         {
-            // Clear the order list
-            order.Clear();
+            currentOrder.ClearOrder(); // Remove all items from the order
+            UpdateOrderSummary(); // Refresh the display
+        }
 
-            // Update the order summary display
+        /// <summary>
+        ///     Handles the "Place Order" button click event to finalize the order.
+        /// </summary>
+        private void PlaceOrderButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (currentOrder.OrderItems.Count == 0)
+            {
+                MessageBox.Show("Your order is empty.", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            // Save or process the order
+            MessageBox.Show($"Order placed successfully!\n\n{currentOrder}", "Order Placed", MessageBoxButton.OK, MessageBoxImage.Information);
+
+            // Clear the order
+            currentOrder.ClearOrder();
             UpdateOrderSummary();
         }
+
+        /// <summary>
+        /// Handles the "Back to Main Window" button click event to navigate to the MainWindow.
+        /// </summary>
+        private void BackToMainWindow_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow(); // Create an instance of the main window
+            mainWindow.Show(); // Show the main window
+            this.Close(); // Close the current food menu window
+        }
+
     }
 }
