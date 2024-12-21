@@ -139,13 +139,5 @@ namespace RestaurantMenu
         }
     }
 
-    /// <summary>
-    /// Represents the structure for saving and loading menu data.
-    /// </summary>
-    public class MenuData
-    {
-        public List<MenuItem> Starters { get; set; }
-        public List<MenuItem> MainDishes { get; set; }
-        public List<MenuItem> Desserts { get; set; }
-    }
+    
 }
