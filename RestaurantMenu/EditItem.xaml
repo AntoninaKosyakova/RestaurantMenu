@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:RestaurantMenu"
         mc:Ignorable="d"
         Title="EditItem" Height="300" Width="650"
+        WindowStartupLocation="CenterScreen"
         Background="#4B2C2C">
     <Grid>
         <Grid.RowDefinitions>

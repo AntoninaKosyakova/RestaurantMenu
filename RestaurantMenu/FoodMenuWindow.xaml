@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="FoodMenuWindow" Height="900" Width="800"
         FontFamily="Times New Roman"
+        WindowStartupLocation="CenterScreen"
         Background="#4B2C2C">
     <Grid Margin="15">
 

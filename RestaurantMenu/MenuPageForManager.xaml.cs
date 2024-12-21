@@ -111,10 +111,5 @@ namespace RestaurantMenu
             MessageBox.Show($"Total Sales Today: {MenuManager.DailySalesTotal:C}", "Daily Sales Summary", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
-        private void Orders_Click(object sender, RoutedEventArgs e)
-        {
-            OrdersWindow ordersWindow = new OrdersWindow();
-            ordersWindow.ShowDialog();
-        }
     }
 }

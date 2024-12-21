@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:RestaurantMenu"
         mc:Ignorable="d"
         Title="AddItem" Height="300" Width="650"
-        Background="#4B2C2C">
+        Background="#4B2C2C"
+        WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>

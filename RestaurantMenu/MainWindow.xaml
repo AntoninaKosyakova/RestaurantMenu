@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="500"
         Background="#4B2C2C"
+        WindowStartupLocation="CenterScreen"
         FontFamily = "Times New Roman">
     <Grid>
         <!-- Welcome Text -->
