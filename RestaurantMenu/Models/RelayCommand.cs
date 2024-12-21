@@ -3,6 +3,13 @@ using System.Windows.Input;
 
 namespace RestaurantMenu.Models
 {
+    /// <summary>
+    ///     This `RelayCommand` class is a reusable implementation of the `ICommand` interface 
+    ///     that allows you to define command behavior (what happens when you execute it) and 
+    ///     conditions for when the command can run, making it useful for binding buttons or 
+    ///     UI actions to logic in a clean and flexible way. It uses functions to dynamically 
+    ///     handle the execution logic `Execute` and whether the command is enabled `CanExecute`.
+    /// </summary>
     public class RelayCommand : ICommand
     {
         // Delegates for execute and canExecute logic
