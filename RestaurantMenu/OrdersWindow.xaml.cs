@@ -1,40 +1,47 @@
 ﻿using RestaurantMenu.Models;
+using System.Linq;
 using System.Windows;
 
 namespace RestaurantMenu
 {
-    /// <summary>
-    /// Interaction logic for OrdersWindow.xaml
-    /// </summary>
     public partial class OrdersWindow : Window
     {
         public OrdersWindow()
         {
             InitializeComponent();
 
-            // Bind the orders list to the UI
-            // Each order is displayed with an Order ID, Items summary, and Total Price.
-            DataContext = MenuManager.PlacedOrders.Select((order, index) => new
+            // Bind the _placedOrders list from MenuManager to the UI
+            OrdersList.ItemsSource = MenuManager.PlacedOrders.Select((order, index) => new OrderViewModel
             {
-                // Generate a readable Order ID (index + 1)
-                OrderId = index + 1,
-
-                // Create a summary of items with their quantities for the order
-                ItemsSummary = string.Join(", ", order.OrderItems.Select(item => $"{item.MenuItem.Name} x{item.Quantity}")),
-
-                // Display the total price for the order
-                TotalPrice = order.TotalPrice
+                OrderInfo = $"Order {index + 1} : Total: {order.TotalPrice:C}",
+                OrderReference = order
             }).ToList();
         }
 
-        /// <summary>
-        /// Handles the Click event for the Close button.
-        /// Closes the Orders window.
-        /// </summary>
-        private void Close_Click(object sender, RoutedEventArgs e)
+        private void DeleteOrder_Click(object sender, RoutedEventArgs e)
         {
-            this.Close(); // Close the window when the button is clicked
-        }
+            // Get the OrderViewModel associated with the clicked button
+            var button = sender as FrameworkElement;
+            var orderToDelete = button?.DataContext as OrderViewModel;
 
+            if (orderToDelete != null)
+            {
+                // Remove the order from the _placedOrders list in MenuManager
+                MenuManager.PlacedOrders.Remove(orderToDelete.OrderReference);
+
+                // Refresh the displayed orders
+                OrdersList.ItemsSource = MenuManager.PlacedOrders.Select((order, index) => new OrderViewModel
+                {
+                    OrderInfo = $"Order {index + 1} : Total: {order.TotalPrice:C}",
+                    OrderReference = order
+                }).ToList();
+            }
+        }
+    }
+
+    public class OrderViewModel
+    {
+        public string OrderInfo { get; set; }
+        public Order OrderReference { get; set; }
     }
 }
