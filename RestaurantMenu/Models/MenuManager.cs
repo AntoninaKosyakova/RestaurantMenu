@@ -1,11 +1,10 @@
 ﻿using RestaurantMenu.Models;
-using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
 
 namespace RestaurantMenu
 {
-    public class MenuManager
+    public static class MenuManager
     {
         private static List<MenuItem> _starters;
         private static List<MenuItem> _mainDishes;
