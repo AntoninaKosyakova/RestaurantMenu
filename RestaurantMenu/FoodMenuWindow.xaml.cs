@@ -81,7 +81,7 @@ namespace RestaurantMenu
                 // Create a button for the menu item
                 Button button = new Button
                 {
-                    Content = "add", // Button label
+                    Content = "+", // Button label
                     Tag = item, // Store the MenuItem object in the button's Tag property
                     FontSize = 10,
                     Height = 20,
