@@ -18,13 +18,23 @@ namespace RestaurantMenu
             InitializeComponent();
             _item = item;
             _list = list;
-            //_menuPage = menuPage;
 
-            // Populate the input fields with the current item's data
+            // Populate ComboBox with valid image paths
+            PopulateImagePaths();
+
+            // Populate fields with existing item data
             EditName.Text = _item.Name;
             EditDescription.Text = _item.Description;
             EditPrice.Text = _item.Price.ToString();
-            EditImagePath.Text = _item.ImagePath;
+            cmbImagePaths.SelectedItem = _item.ImagePath;  // Set existing image path
+        }
+
+        private void PopulateImagePaths()
+        {
+            foreach (string path in MenuItem.ValidImagePaths)
+            {
+                cmbImagePaths.Items.Add(path); // Add each valid path to ComboBox
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -39,7 +49,7 @@ namespace RestaurantMenu
             _item.Name = EditName.Text;
             _item.Description = EditDescription.Text;
             _item.Price = ValidateAndConvertToDouble(EditPrice.Text);
-            _item.ImagePath = EditImagePath.Text;
+            _item.ImagePath = cmbImagePaths.SelectedItem as string;
 
             // No need to notify MenuPage explicitly; it will refresh itself
         }
@@ -56,6 +66,8 @@ namespace RestaurantMenu
                 return 0;
             }
         }
+
+
 
         private void EditName_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -74,6 +86,11 @@ namespace RestaurantMenu
 
         private void EditImagePath_TextChanged(object sender, TextChangedEventArgs e)
         {
+        }
+
+        private void cmbImagePaths_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

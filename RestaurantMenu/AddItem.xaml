@@ -41,7 +41,7 @@
                 <TextBox Margin="5" Name="NameTextBox" TextChanged="NameTextBox_TextChanged"/>
                 <TextBox Margin="5" Name="DescriptionTextBox"/>
                 <TextBox Margin="5" Name="PriceTextBox"/>
-                <ComboBox x:Name="cmbImagePaths" Margin="5" />
+                <ComboBox x:Name="cmbImagePaths" Margin="5" SelectionChanged="cmbImagePaths_SelectionChanged"/>
                                 
             </StackPanel>
         </Grid>

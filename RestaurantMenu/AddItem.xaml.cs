@@ -9,22 +9,6 @@ namespace RestaurantMenu
     public partial class AddItem : Window
     {
         private List<MenuItem> targetList;
-        private readonly List<string> imagePaths = new List<string>
-        {
-            "/Images/bread.jpg",
-            "/Images/Lasagna.png",
-            "/Images/MushroomRisotto.png",
-            "/Images/PannaCotta.png",
-            "/Images/Salad.jpg",
-            "/Images/Tiramisu.png",
-            "/Images/ChickenParmesan.jpg",
-            "/Images/FocacciaBread.jpg",
-            "/Images/ChickenPiccata.png",
-            "/Images/EggplantCaponata.jpg",
-            "/Images/PestoMozzarellaArancini.jpg",
-            "/Images/ItalianSalad.jpg"
-        };
-
 
         public AddItem(List<MenuItem> list)
         {
@@ -40,10 +24,10 @@ namespace RestaurantMenu
         /// </summary>
         private void PopulateImagePaths()
         {
-            // Iterate through the list of valid image paths
-            foreach (string path in imagePaths)
+            cmbImagePaths.Items.Clear();
+            foreach (var path in MenuItem.ValidImagePaths)
             {
-                // Add each image path to the ComboBox as an item
+                // Add each valid path to ComboBox
                 cmbImagePaths.Items.Add(path);
             }
         }
@@ -55,10 +39,10 @@ namespace RestaurantMenu
             string name = NameTextBox.Text.Trim();
             string description = DescriptionTextBox.Text.Trim();
             string priceText = PriceTextBox.Text.Trim();
-            string selectedImage = cmbImagePaths.SelectedItem?.ToString();
+            string imagePath = cmbImagePaths.SelectedItem as string;
 
             // Validate inputs
-            if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(description) || string.IsNullOrWhiteSpace(priceText) ||string.IsNullOrWhiteSpace(selectedImage))
+            if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(description) || string.IsNullOrWhiteSpace(priceText) || string.IsNullOrEmpty(imagePath))
             {
                 MessageBox.Show("Please fill out all fields.", "Input Error", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
@@ -71,7 +55,7 @@ namespace RestaurantMenu
             }
 
             // Create new MenuItem
-            MenuItem newItem = new MenuItem(name, description, price, selectedImage);
+            MenuItem newItem = new MenuItem(name, description, price, imagePath);
 
             // Check if the list has room and add the item
             if (targetList.Count >= 2)
@@ -96,6 +80,11 @@ namespace RestaurantMenu
         }
 
         private void btnBrowseFolder_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void cmbImagePaths_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }

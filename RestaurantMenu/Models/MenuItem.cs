@@ -12,11 +12,28 @@ namespace RestaurantMenu.Models
         // Private fields for the data
         private string name;
         private string description;
-        private double price;
         private string imagePath;
+        private double price;
         private const int SPACE = -40;
 
-
+        /// <summary>
+        ///     A static list of valid image paths.
+        /// </summary>
+        public static List<string> ValidImagePaths { get; } = new List<string>
+        {
+            "/Images/bread.jpg",
+            "/Images/Lasagna.png",
+            "/Images/MushroomRisotto.png",
+            "/Images/PannaCotta.png",
+            "/Images/Salad.jpg",
+            "/Images/Tiramisu.png",
+            "/Images/ChickenParmesan.jpg",
+            "/Images/FocacciaBread.jpg",
+            "/Images/ChickenPiccata.png",
+            "/Images/EggplantCaponata.jpg",
+            "/Images/PestoMozzarellaArancini.jpg",
+            "/Images/ItalianSalad.jpg"
+        };
 
         /// <summary>
         /// Initializes a new instance of the MenuItem class with the specified details.
@@ -30,7 +47,7 @@ namespace RestaurantMenu.Models
             Name = name;
             Description = description;
             Price = price;
-            ImagePath = imagePath;
+            ImagePath = ValidateImagePath(imagePath);
         }
 
         /// <summary>
@@ -101,6 +118,21 @@ namespace RestaurantMenu.Models
                 }
                 imagePath = value;
             }
+        }
+        /// <summary>
+        /// Validates the provided image path.
+        /// </summary>
+        /// <param name="imagePath">The image path to validate.</param>
+        /// <returns>The validated image path.</returns>
+        private string ValidateImagePath(string imagePath)
+        {
+            if (ValidImagePaths.Contains(imagePath))
+            {
+                return imagePath;
+            }
+
+            MessageBox.Show("Invalid image path. Please select a valid path from the list.", "Invalid data", MessageBoxButton.OK, MessageBoxImage.Warning);
+            return ValidImagePaths.Count > 0 ? ValidImagePaths[0] : string.Empty; // Default to the first valid path if available.
         }
 
         /// <summary>

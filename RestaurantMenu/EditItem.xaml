@@ -40,7 +40,7 @@
                 <TextBox Margin="5" x:Name="EditName" TextChanged="EditName_TextChanged"/>
                 <TextBox Margin="5" x:Name="EditDescription" TextChanged="EditDescription_TextChanged"/>
                 <TextBox Margin="5" x:Name="EditPrice" TextChanged="EditPrice_TextChanged"/>
-                <TextBox Margin="5" x:Name="EditImagePath" TextChanged="EditImagePath_TextChanged"/>
+                <ComboBox x:Name="cmbImagePaths" Margin="5" SelectionChanged="cmbImagePaths_SelectionChanged"/>
                 
             </StackPanel>
         </Grid>
