@@ -11,7 +11,9 @@ namespace RestaurantMenu
     {
         private MenuItem _item;
         private List<MenuItem> _list;
-       // private MenuPage _menuPage; // Reference to the MenuPage
+
+        // Add EditedItem property to return the updated item
+        public MenuItem EditedItem { get; private set; }
 
         public EditItem(MenuItem item, List<MenuItem> list)
         {
@@ -26,7 +28,7 @@ namespace RestaurantMenu
             EditName.Text = _item.Name;
             EditDescription.Text = _item.Description;
             EditPrice.Text = _item.Price.ToString();
-            cmbImagePaths.SelectedItem = _item.ImagePath;  // Set existing image path
+            cmbImagePaths.SelectedItem = _item.ImagePath; // Set existing image path
         }
 
         private void PopulateImagePaths()
@@ -40,7 +42,13 @@ namespace RestaurantMenu
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             UpdateItem(); // Update the item in the list
-            this.Close(); // Close the EditItem window
+
+            // Set the EditedItem property with the updated item
+            EditedItem = _item;
+
+            // Close the EditItem window with a success result
+            DialogResult = true;
+            Close();
         }
 
         private void UpdateItem()
@@ -67,30 +75,20 @@ namespace RestaurantMenu
             }
         }
 
-
-
         private void EditName_TextChanged(object sender, TextChangedEventArgs e)
         {
-            
         }
 
         private void EditDescription_TextChanged(object sender, TextChangedEventArgs e)
         {
-            
         }
 
         private void EditPrice_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            
-        }
-
-        private void EditImagePath_TextChanged(object sender, TextChangedEventArgs e)
         {
         }
 
         private void cmbImagePaths_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
         }
     }
 }

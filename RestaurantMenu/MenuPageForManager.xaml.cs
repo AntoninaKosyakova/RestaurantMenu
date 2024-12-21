@@ -52,23 +52,26 @@ namespace RestaurantMenu
                     {
                         Owner = this
                     };
-                    editWindow.ShowDialog();
-                    RefreshUI();
+
+                    // Check if the edit was successful
+                    if (editWindow.ShowDialog() == true)
+                    {
+                        // Update the item in the MenuManager
+                        MenuManager.UpdateItem(item, editWindow.EditedItem);
+                        RefreshUI(); // Refresh UI after editing
+                    }
                 }
             }
         }
+
 
         private void DeleteItem(object parameter)
         {
             if (parameter is MenuItem item)
             {
-                var list = MenuManager.GetListForItem(item);
-                if (list != null)
-                {
-                    list.Remove(item);
-                    MessageBox.Show($"{item.Name} has been removed.", "Item Deleted", MessageBoxButton.OK, MessageBoxImage.Information);
-                    RefreshUI();
-                }
+                MenuManager.RemoveItem(item); // Use RemoveItem to persist changes
+                MessageBox.Show($"{item.Name} has been removed.", "Item Deleted", MessageBoxButton.OK, MessageBoxImage.Information);
+                RefreshUI();
             }
         }
 
