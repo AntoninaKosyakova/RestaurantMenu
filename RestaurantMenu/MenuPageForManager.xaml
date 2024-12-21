@@ -27,7 +27,7 @@
                                             <TextBlock Text="{Binding Name}" FontWeight="Bold" Foreground="White"/>
                                             <TextBlock Text="{Binding Description}" TextWrapping="Wrap" FontSize="12" Foreground="White"/>
                                         </StackPanel>
-                                        <TextBlock Text="{Binding Price, StringFormat=C}" Width="50" VerticalAlignment="Center"/>
+                                        <TextBlock Text="{Binding Price, StringFormat=C}" Width="50" VerticalAlignment="Center" Foreground="White"/>
                                         <Button Content="Edit" Width="60" Margin="5,0" Command="{Binding DataContext.EditCommand, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding}"/>
                                         <Button Content="Delete" Width="60" Margin="5,0" Command="{Binding DataContext.DeleteCommand, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding}"/>
                                     </StackPanel>
