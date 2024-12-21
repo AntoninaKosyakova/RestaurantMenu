@@ -37,10 +37,12 @@
 
             <!-- Input Boxes -->
             <StackPanel Grid.Column="1">
+               
                 <TextBox Margin="5" Name="NameTextBox" TextChanged="NameTextBox_TextChanged"/>
                 <TextBox Margin="5" Name="DescriptionTextBox"/>
                 <TextBox Margin="5" Name="PriceTextBox"/>
-                <TextBox Margin="5" Name="ImagePathTextBox"/>
+                <ComboBox x:Name="cmbImagePaths" Margin="5" />
+                                
             </StackPanel>
         </Grid>
 

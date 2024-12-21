@@ -10,18 +10,30 @@
 
   <ItemGroup>
     <None Remove="Images\bread.jpg" />
+    <None Remove="Images\ChickenParmesan.jpg" />
+    <None Remove="Images\ChickenPiccata.png" />
+    <None Remove="Images\EggplantCaponata.jpg" />
+    <None Remove="Images\FocacciaBread.jpg" />
+    <None Remove="Images\ItalianSalad.jpg" />
     <None Remove="Images\Lasagna.png" />
     <None Remove="Images\MushroomRisotto.png" />
     <None Remove="Images\PannaCotta.png" />
+    <None Remove="Images\PestoMozzarellaArancini.jpg" />
     <None Remove="Images\Salad.jpg" />
     <None Remove="Images\Tiramisu.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Images\bread.jpg" />
+    <Resource Include="Images\ChickenParmesan.jpg" />
+    <Resource Include="Images\ChickenPiccata.png" />
+    <Resource Include="Images\EggplantCaponata.jpg" />
+    <Resource Include="Images\FocacciaBread.jpg" />
+    <Resource Include="Images\ItalianSalad.jpg" />
     <Resource Include="Images\Lasagna.png" />
     <Resource Include="Images\MushroomRisotto.png" />
     <Resource Include="Images\PannaCotta.png" />
+    <Resource Include="Images\PestoMozzarellaArancini.jpg" />
     <Resource Include="Images\Salad.jpg" />
     <Resource Include="Images\Tiramisu.png" />
   </ItemGroup>
