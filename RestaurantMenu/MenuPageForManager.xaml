@@ -91,7 +91,6 @@
 
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20">
             <Button Content="Daily Sales Summary" Width="150" Margin="10" Click="DailySalesSummary_Click"/>
-            <Button Content="Orders" Width="100" Margin="10" Click="Orders_Click"/>
             <Button Content="View Food Menu" Width="150" Margin="10" Click="ViewFoodMenu_Click"/>
         </StackPanel>
     </Grid>
