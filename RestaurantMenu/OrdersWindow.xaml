@@ -1,8 +1,7 @@
 ﻿<Window x:Class="RestaurantMenu.OrdersWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="OrdersWindow" Height="400" Width="300"
-        FontFamily="Arial">
+        Title="OrdersWindow" Height="400" Width="300">
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -12,10 +11,10 @@
         </Grid.RowDefinitions>
 
         <!-- Title -->
-        <TextBlock Text="Orders placed" 
-                   FontSize="20" 
-                   FontWeight="Bold" 
-                   HorizontalAlignment="Center" 
+        <TextBlock Text="Orders placed"
+                   FontSize="20"
+                   FontWeight="Bold"
+                   HorizontalAlignment="Center"
                    Margin="0,10" />
 
         <!-- Orders List -->
@@ -34,16 +33,16 @@
                                 </Grid.ColumnDefinitions>
 
                                 <!-- Order Information -->
-                                <TextBlock Text="{Binding OrderInfo}" 
-                                           VerticalAlignment="Center" 
+                                <TextBlock Text="{Binding OrderInfo}"
+                                           VerticalAlignment="Center"
                                            FontSize="14" />
 
                                 <!-- Delete Button -->
-                                <Button Content="delete" 
-                                        Grid.Column="1" 
-                                        Margin="5,0,0,0" 
-                                        Width="60" 
-                                        Click="DeleteOrder_Click" 
+                                <Button Content="delete"
+                                        Grid.Column="1"
+                                        Margin="5,0,0,0"
+                                        Width="60"
+                                        Click="DeleteOrder_Click"
                                         CommandParameter="{Binding}" />
                             </Grid>
                         </DataTemplate>

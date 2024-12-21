@@ -1,5 +1,4 @@
 ﻿using RestaurantMenu.Models;
-using System.Linq;
 using System.Windows;
 
 namespace RestaurantMenu
@@ -10,38 +9,40 @@ namespace RestaurantMenu
         {
             InitializeComponent();
 
-            // Bind the _placedOrders list from MenuManager to the UI
-            OrdersList.ItemsSource = MenuManager.PlacedOrders.Select((order, index) => new OrderViewModel
+            // Populate the orders list from MenuManager.PlacedOrders
+            RefreshOrdersList();
+        }
+
+        private void RefreshOrdersList()
+        {
+            // Clear the current list in the UI
+            OrdersList.Items.Clear();
+
+            // Add each order from MenuManager.PlacedOrders to the list
+            int orderNumber = 1;
+            foreach (var order in MenuManager.PlacedOrders)
             {
-                OrderInfo = $"Order {index + 1} : Total: {order.TotalPrice:C}",
-                OrderReference = order
-            }).ToList();
+                // Create a simple string to represent the order
+                string orderInfo = $"Order {orderNumber} : Total: {order.TotalPrice:C}";
+                OrdersList.Items.Add(new { OrderInfo = orderInfo, Order = order });
+                orderNumber++;
+            }
         }
 
         private void DeleteOrder_Click(object sender, RoutedEventArgs e)
         {
-            // Get the OrderViewModel associated with the clicked button
+            // Get the order to delete from the button's DataContext
             var button = sender as FrameworkElement;
-            var orderToDelete = button?.DataContext as OrderViewModel;
+            var orderToDelete = button?.DataContext as dynamic; // Using dynamic for simplicity
 
-            if (orderToDelete != null)
+            if (orderToDelete != null && orderToDelete.Order != null)
             {
-                // Remove the order from the _placedOrders list in MenuManager
-                MenuManager.PlacedOrders.Remove(orderToDelete.OrderReference);
+                // Remove the corresponding order from MenuManager.PlacedOrders
+                MenuManager.PlacedOrders.Remove(orderToDelete.Order);
 
-                // Refresh the displayed orders
-                OrdersList.ItemsSource = MenuManager.PlacedOrders.Select((order, index) => new OrderViewModel
-                {
-                    OrderInfo = $"Order {index + 1} : Total: {order.TotalPrice:C}",
-                    OrderReference = order
-                }).ToList();
+                // Refresh the list
+                RefreshOrdersList();
             }
         }
-    }
-
-    public class OrderViewModel
-    {
-        public string OrderInfo { get; set; }
-        public Order OrderReference { get; set; }
     }
 }
