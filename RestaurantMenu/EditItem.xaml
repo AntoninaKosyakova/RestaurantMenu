@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RestaurantMenu"
         mc:Ignorable="d"
-        Title="EditItem" Height="250" Width="650">
+        Title="EditItem" Height="300" Width="650"
+        Background="#4B2C2C">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -17,8 +18,9 @@
         <TextBlock Text="Edit Item" 
            FontWeight="Bold" 
            FontSize="24" 
+                   Foreground="White"
            HorizontalAlignment="Center" 
-           Margin="10" />
+           Margin="30" />
 
         <!-- Input Fields -->
         <Grid Grid.Row="1">
@@ -29,10 +31,10 @@
 
             <!-- Labels -->
             <StackPanel>
-                <TextBlock Text="Name:" Margin="5"/>
-                <TextBlock Text="Description:" Margin="5"/>
-                <TextBlock Text="Price:" Margin="5"/>
-                <TextBlock Text="Image Path:" Margin="5"/>
+                <TextBlock Foreground="White" Text="Name:" Margin="5"/>
+                <TextBlock Foreground="White" Text="Description:" Margin="5"/>
+                <TextBlock Foreground="White" Text="Price:" Margin="5"/>
+                <TextBlock Foreground="White" Text="Image Path:" Margin="5"/>
             </StackPanel>
 
             <!-- Input Boxes -->
