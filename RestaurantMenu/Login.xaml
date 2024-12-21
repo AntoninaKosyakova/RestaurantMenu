@@ -6,19 +6,20 @@
         xmlns:local="clr-namespace:RestaurantMenu"
         mc:Ignorable="d"
         Title="Login" Height="350" Width="400"
-        FontFamily = "Times New Roman">
+        FontFamily = "Times New Roman"
+        Background="#4B2C2C">
     <Grid>
 
         <!-- Title Text -->
-        <TextBlock Text="Manager login" FontSize="24" FontWeight="Bold" Foreground="#A0D0FF" 
-                   HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0"/>
+        <TextBlock Text="Manager login" FontSize="24" FontWeight="Bold" Foreground="White"
+                   HorizontalAlignment="Center" VerticalAlignment="Top" Margin="40"/>
 
         <!-- User Icon -->
         <Image Source="user_computer_icon.png" Width="50" Height="50" HorizontalAlignment="Center" 
                VerticalAlignment="Top" Margin="0,60,0,0"/>
 
         <!-- Username Label -->
-        <TextBlock Text="Enter Username:" Foreground="#A0D0FF" FontSize="14" HorizontalAlignment="Left" 
+        <TextBlock Text="Enter Username:" Foreground="White" FontSize="14" HorizontalAlignment="Left" 
                    VerticalAlignment="Top" Margin="50,120,0,0"/>
 
         <!-- Username TextBox -->
@@ -26,7 +27,7 @@
                  Height="30" Margin="50,140,0,0"/>
 
         <!-- Password Label -->
-        <TextBlock Text="Enter Password:" Foreground="#A0D0FF" FontSize="14" HorizontalAlignment="Left" 
+        <TextBlock Text="Enter Password:" Foreground="White" FontSize="14" HorizontalAlignment="Left" 
                    VerticalAlignment="Top" Margin="50,180,0,0"/>
 
         <!-- Password TextBox -->
@@ -35,6 +36,6 @@
 
         <!-- Login Button -->
         <Button Content="Login" Width="100" Height="40" HorizontalAlignment="Center" VerticalAlignment="Top" 
-                Margin="0,250,0,0" Background="#66AEDD" Foreground="White" FontWeight="Bold" Click="LoginButton_Click"/>
+                Margin="0,250,0,0" Background="Gray" Foreground="White" FontWeight="Bold" Click="LoginButton_Click"/>
     </Grid>
 </Window>
