@@ -38,8 +38,4 @@
     <Resource Include="Images\Tiramisu.png" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Document\" />
-  </ItemGroup>
-
 </Project>
